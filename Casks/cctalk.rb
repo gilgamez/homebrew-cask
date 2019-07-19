@@ -1,13 +1,14 @@
 cask 'cctalk' do
-  version '0.8.1-176,2017-01-12.23.37'
-  sha256 '701f597df2d21ff5c71b12fdb9311d2661dfc28c4782106cd55533519e7c4a9d'
+  version '7.5.3.6'
+  sha256 '6823470e8e8a4d3524507e72a95d77138b8805bf9dea97bec9c6f21ab9b669ce'
 
-  # f1.ct.hjfile.cn was verified as official when first introduced to the cask
-  url "http://f1.ct.hjfile.cn/api/AutoUpdate/newupdate/out/mac/cctalk/archive/#{version.before_comma.hyphens_to_dots}/CCtalk-#{version.before_comma}-hujiang-#{version.after_comma}.dmg"
-  appcast 'http://f1.ct.hjfile.cn/api/AutoUpdate/newupdate/out/mac/cctalk/update/info.xml',
-          checkpoint: '50da191b8d58b72dcd008d992b63671ca89c831a3ef2acff0eb8c40dfe3f2133'
-  name 'CCTalk'
-  homepage 'http://www.cctalk.com/download/'
+  # cc.hjfile.cn was verified as official when first introduced to the cask
+  url "https://cc.hjfile.cn/cc/#{version}/8/1/103/#{version}.dmg"
+  appcast 'https://www.macupdater.net/cgi-bin/check_urls/check_url_filename.cgi?url=http://www.cctalk.com/webapi/basic/v1.1/version/down%3Fapptype=1%26terminalType=8%26versionType=103'
+  name 'CCtalk'
+  homepage 'https://www.cctalk.com/download/'
+
+  depends_on macos: '>= :yosemite'
 
   app 'CCtalk.app'
 end

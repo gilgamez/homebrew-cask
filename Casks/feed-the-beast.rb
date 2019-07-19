@@ -7,11 +7,9 @@ cask 'feed-the-beast' do
   name 'Feed the Beast'
   homepage 'https://www.feed-the-beast.com/'
 
-  auto_updates true
-
   app 'Feed The Beast.app'
 
-  zap delete: '~/Library/Application Support/ftblauncher'
+  zap trash: '~/Library/Application Support/ftblauncher'
 
   caveats do
     depends_on_java

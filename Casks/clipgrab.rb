@@ -1,12 +1,13 @@
 cask 'clipgrab' do
-  version '3.6.3'
-  sha256 '2779fe6ccb4be6e1cd0bf023c5f21b6bde38e33eab33acd4d4b2926ea914e24a'
+  version '3.8.3'
+  sha256 '2e5cc18adfa0b7cd7e0491bd299b8a5af710c32edd31aa98bc56f553ac2886a8'
 
   url "https://download.clipgrab.org/ClipGrab-#{version}.dmg"
+  appcast 'https://clipgrab.org/'
   name 'ClipGrab'
   homepage 'https://clipgrab.org/'
 
   app 'ClipGrab.app'
 
-  zap delete: '~/Library/Preferences/de.clipgrab.ClipGrab.plist'
+  zap trash: '~/Library/Preferences/de.clipgrab.ClipGrab.plist'
 end

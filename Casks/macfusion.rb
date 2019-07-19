@@ -3,12 +3,11 @@ cask 'macfusion' do
   sha256 '6693241fd54d686013864adb86a6ea7eef6c1291546573b628b3ddf7889ef71c'
 
   url "http://macfusionapp.org/releases/Macfusion_#{version}.zip"
-  appcast 'http://macfusionapp.org/appcast.xml',
-          checkpoint: '6035a7a17249b0f1106400fff4e81df9815f99eca3ef1e5b4a98d54fa97bfad3'
+  appcast 'http://macfusionapp.org/appcast.xml'
   name 'Macfusion'
   homepage 'http://macfusionapp.org/'
 
-  depends_on formula: 'homebrew/fuse/sshfs'
+  depends_on formula: 'sshfs'
 
   app 'Macfusion.app'
 

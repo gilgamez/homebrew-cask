@@ -3,10 +3,16 @@ cask 'desmume' do
   sha256 'c3ff7024e0905f1c1da390d0fa793a3dc42d026ceded333958f3b79243a11db1'
 
   url "https://downloads.sourceforge.net/desmume/desmume-#{version}-mac.dmg"
-  appcast 'https://sourceforge.net/projects/desmume/rss',
-          checkpoint: '996ce5b97e3b872cd79f4b5b7ba14f90468d2f421f4d981b4eff049d026b378a'
+  appcast 'https://sourceforge.net/projects/desmume/rss'
   name 'DeSmuME'
   homepage 'https://sourceforge.net/projects/desmume/'
 
   app 'DeSmuME.app'
+
+  zap trash: [
+               '~/Library/Application Support/DeSmuME',
+               '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/org.desmume.desmume.sfl*',
+               '~/Library/Saved Application State/org.desmume.DeSmuME.savedState',
+               '~/Library/Preferences/org.desmume.DeSmuME.plist',
+             ]
 end

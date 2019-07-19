@@ -1,37 +1,50 @@
 cask 'minecraft-server' do
-  version '1.11.2'
-  sha256 'dec47d36b429fd05076b90b1f42c2a25138bc39204aa51b9674ef2a98d64d88a'
+  version '1.14.2,808be3869e2ca6b62378f9f4b33c946621620019'
+  sha256 'b47fd85155ae77c2bc59e62a215310c4dce87c7dfdf7588385973fa20ff4655b'
 
-  # s3.amazonaws.com/Minecraft.Download was verified as official when first introduced to the cask
-  url "https://s3.amazonaws.com/Minecraft.Download/versions/#{version}/minecraft_server.#{version}.jar"
+  # launcher.mojang.com was verified as official when first introduced to the cask
+  url "https://launcher.mojang.com/v#{version.major}/objects/#{version.after_comma}/server.jar"
+  appcast 'https://minecraft.net/en-us/download/server/'
   name 'Minecraft Server'
   homepage 'https://minecraft.net/'
 
   container type: :naked
 
-  # shim script (https://github.com/caskroom/homebrew-cask/issues/18809)
+  # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
   shimscript = "#{staged_path}/minecraft-server.wrapper.sh"
   binary shimscript, target: 'minecraft-server'
 
+  config_dir = HOMEBREW_PREFIX.join('etc', 'minecraft-server')
+
   preflight do
-    IO.write shimscript, <<-EOS.undent
+    FileUtils.mkdir_p config_dir
+
+    IO.write shimscript, <<~EOS
       #!/bin/sh
-      cd "$(dirname "$(readlink -n $0)")" && \
-        java -Xmx1024M -Xms1024M -jar 'minecraft_server.#{version}.jar' nogui
+      cd '#{config_dir}' && \
+        exec /usr/bin/java ${@:--Xms1024M -Xmx1024M} -jar '#{staged_path}/server.jar' nogui
     EOS
   end
 
-  postflight do
-    system_command 'minecraft-server'
+  eula_file = config_dir.join('eula.txt')
 
-    eula_file = "#{staged_path}/eula.txt"
-    IO.write(eula_file, IO.read(eula_file).gsub('false', 'TRUE'))
+  postflight do
+    system_command shimscript
+    IO.write(eula_file, IO.read(eula_file).sub('eula=false', 'eula=TRUE'))
   end
 
+  uninstall_preflight do
+    FileUtils.rm_f eula_file
+  end
+
+  zap trash: config_dir
+
   caveats do
-    <<-EOS.undent
-      To run this app, type "#{token}" in terminal.
-      To configure the server take a look at the files staged at #{staged_path}
+    depends_on_java
+    <<~EOS
+      Configuration files are located in
+
+        #{config_dir}
     EOS
   end
 end

@@ -4,10 +4,9 @@ cask 'multidoge' do
 
   # github.com/langerhans/multidoge was verified as official when first introduced to the cask
   url "https://github.com/langerhans/multidoge/releases/download/v#{version}/multidoge-#{version}.dmg"
-  appcast 'https://github.com/langerhans/multidoge/releases.atom',
-          checkpoint: '171414db90a857afe06592aa5c815d6f8f693177ebe4a7454f7a00b9ccad8e5a'
+  appcast 'https://github.com/langerhans/multidoge/releases.atom'
   name 'MultiDoge'
-  homepage 'http://multidoge.org/'
+  homepage 'https://multidoge.org/'
 
   app 'MultiDoge.app'
 end

@@ -1,14 +1,13 @@
 cask 'texmacs' do
-  version '1.99.5'
-  sha256 '6f560861a25439a3a4e314098ed096a3416581eab90ace89c7055e2eb34f7e2e'
+  version '1.99.10'
+  sha256 '55f5731d72916d7bdd1c1d7b0da5f4bda9db5078eb04e8cf6785df4cb86204b8'
 
-  url "http://www.texmacs.org/Download/ftp/tmftp/macos/TeXmacs-#{version}.dmg"
-  appcast 'http://www.texmacs.org/tmweb/download/macosx.en.html',
-          checkpoint: '7e207b62277a2f1777c40e2d1c2405a5cb58718ad79a1ba6424a8291207a708c'
+  url "https://www.texmacs.org/Download/ftp/tmftp/macos/TeXmacs-#{version}.dmg"
+  appcast 'https://www.texmacs.org/tmweb/download/macosx.en.html'
   name 'GNU TeXmacs'
-  homepage 'http://www.texmacs.org/'
+  homepage 'https://www.texmacs.org/'
 
   app "TeXmacs-#{version}.app"
 
-  zap delete: '~/.TeXmacs'
+  zap trash: '~/.TeXmacs'
 end

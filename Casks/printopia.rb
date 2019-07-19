@@ -1,12 +1,13 @@
 cask 'printopia' do
-  version '2.1.23'
-  sha256 '33d84e32df0222f55619aea2180b4df49dba592135cc13beafd2eac3726dc817'
+  version '3.0.13'
+  sha256 'cac11d0ba2af9d33c7dcb7ecd42812c3ca4845f7f403c9c9d1b8a015829a90e1'
 
-  url "https://download.decisivetactics.com/products/printopia/dl/Printopia_#{version}.zip"
+  url "https://www.decisivetactics.com/products/printopia/dl/Printopia_#{version}.zip"
+  appcast 'https://www.decisivetactics.com/api/checkupdate?x-app_id=com.decisivetactics.printopia'
   name 'Printopia'
   homepage 'https://www.decisivetactics.com/products/printopia/'
 
-  prefpane 'Printopia/Install Printopia.app/Contents/Resources/Printopia.prefPane'
+  app 'Printopia.app'
 
-  zap delete: '~/Library/Preferences/com.ecamm.printopia.plist'
+  zap trash: '~/Library/Preferences/com.ecamm.printopia.plist'
 end

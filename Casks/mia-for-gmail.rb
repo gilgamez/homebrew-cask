@@ -1,10 +1,9 @@
 cask 'mia-for-gmail' do
-  version '2.2.7'
-  sha256 '6db8c810cdc125468ac7c4a302b8dd8a9d919ef3144fd7675340f6f5e02211e5'
+  version '2.3.0'
+  sha256 '2e7f2d159e8aed156bac507a3637053a047efe7877df26b59449f7fdb394fcc4'
 
   url 'https://www.miaforgmail.com/application/notifier-pro-for-gmail/MiaForGmail.dmg'
-  appcast 'https://www.sovapps.com/application/notifier-pro-for-gmail/notifier.xml',
-          checkpoint: '9053110423df610279b20514c7ca8cc37620c7932ca45f248ba5f891d7801914'
+  appcast 'https://www.sovapps.com/application/notifier-pro-for-gmail/notifier.xml'
   name 'Mia for Gmail'
   homepage 'https://www.miaforgmail.com/'
 
@@ -15,11 +14,11 @@ cask 'mia-for-gmail' do
   uninstall quit:       'com.sovapps.gmailnotifier',
             login_item: 'Mia for Gmail'
 
-  zap delete: [
-                '~/Library/Preferences/com.sovapps.gmailnotifier.plist',
-                '~/Library/Caches/com.sovapps.gmailnotifier',
-                '~/Library/Containers/com.sovapps.launchAtLoginHelper',
-                '~/Library/Application Scripts/com.sovapps.gmailnotifier',
-                '~/Library/Application Scripts/com.sovapps.launchAtLoginHelper',
-              ]
+  zap trash: [
+               '~/Library/Preferences/com.sovapps.gmailnotifier.plist',
+               '~/Library/Caches/com.sovapps.gmailnotifier',
+               '~/Library/Containers/com.sovapps.launchAtLoginHelper',
+               '~/Library/Application Scripts/com.sovapps.gmailnotifier',
+               '~/Library/Application Scripts/com.sovapps.launchAtLoginHelper',
+             ]
 end

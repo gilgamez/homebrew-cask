@@ -1,18 +1,20 @@
 cask 'mobile-mouse-server' do
-  version '3.3.4'
-  sha256 'd113c105a5ae3d20b06cd6e47354f890b06947373c726fb0f4970f3f48a4b047'
+  version '3.5.0'
+  sha256 '0192e8b7546e31d73beab011c43fc98a13d42de8b1c15fb6003950da043ea39d'
 
-  url "http://mobilemouse.com/downloads/OS_X_Server_#{version.dots_to_underscores}.dmg"
+  url "https://mobilemouse.com/downloads/OS_X_Server_#{version.dots_to_underscores}.dmg",
+      user_agent: :fake
+  appcast 'https://mobilemouse.com/downloads/'
   name 'Mobile Mouse Server'
-  homepage 'http://mobilemouse.com/'
+  homepage 'https://mobilemouse.com/'
 
   app 'Mobile Mouse Server.app'
 
   uninstall quit: 'com.rpatechnology.mobilemouse'
 
-  zap delete: [
-                '/Users/tangestani/Library/Caches/com.crashlytics.data/com.rpatechnology.mobilemouse',
-                '/Users/tangestani/Library/Caches/com.rpatechnology.mobilemouse',
-                '/Users/tangestani/Library/Preferences/com.rpatechnology.mobilemouse.plist',
-              ]
+  zap trash: [
+               '/Users/tangestani/Library/Caches/com.crashlytics.data/com.rpatechnology.mobilemouse',
+               '/Users/tangestani/Library/Caches/com.rpatechnology.mobilemouse',
+               '/Users/tangestani/Library/Preferences/com.rpatechnology.mobilemouse.plist',
+             ]
 end

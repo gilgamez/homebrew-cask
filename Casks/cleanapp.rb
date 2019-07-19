@@ -1,30 +1,23 @@
 cask 'cleanapp' do
-  if MacOS.version <= :leopard
-    version '3.4.12'
-    sha256 'e6020a82949a55ae1eb5b7e45f736bc8b51c7d5e94503f0e4a88b5f8940ab269'
-  elsif MacOS.version <= :lion
-    version '4.0.8'
-    sha256 'e77359586731e1ae863351846afc9fd34a7b9774625122001c0d92593a340ff1'
-  else
-    version '5.1.2'
-    sha256 '8ec496553f19deb6207cd33a5ec6b189543c46b7800f90d37880aefe121504a4'
-  end
+  version '5.1.3'
+  sha256 'a3c806fb1246d326a6e96990a7760a7f15d030ee36857b74bd57417c173bd634'
 
   url "https://download.syniumsoftware.com/CleanApp/CleanApp%20#{version}.dmg"
+  appcast 'https://macupdater.net/cgi-bin/check_urls/check_url_redirect.cgi?url=https://www.syniumsoftware.com/download/cleanapp.dmg'
   name 'Synium Software CleanApp'
-  homepage 'http://www.syniumsoftware.com/cleanapp'
+  homepage 'https://www.syniumsoftware.com/cleanapp'
 
   app 'CleanApp.app'
 
-  zap delete: [
-                '/Library/Application Support/CleanApp',
-                '/Library/LaunchDaemons/com.syniumsoftware.CleanAppDaemon.plist',
-                '~/Library/Application Support/CleanApp',
-                '~/Library/Caches/com.syniumsoftware.CleanApp',
-                '~/Library/PreferencePanes/CleanApp Logging Service.prefPane',
-                '~/Library/Preferences/com.syniumsoftware.CleanApp.plist',
-                '~/Library/Preferences/com.syniumsoftware.CleanAppDaemon.plist',
-                '~/Library/Preferences/com.syniumsoftware.stats_config.plist',
-                '~/Library/Saved Application State/com.syniumsoftware.CleanApp.savedState',
-              ]
+  zap trash: [
+               '/Library/Application Support/CleanApp',
+               '/Library/LaunchDaemons/com.syniumsoftware.CleanAppDaemon.plist',
+               '~/Library/Application Support/CleanApp',
+               '~/Library/Caches/com.syniumsoftware.CleanApp',
+               '~/Library/PreferencePanes/CleanApp Logging Service.prefPane',
+               '~/Library/Preferences/com.syniumsoftware.CleanApp.plist',
+               '~/Library/Preferences/com.syniumsoftware.CleanAppDaemon.plist',
+               '~/Library/Preferences/com.syniumsoftware.stats_config.plist',
+               '~/Library/Saved Application State/com.syniumsoftware.CleanApp.savedState',
+             ]
 end

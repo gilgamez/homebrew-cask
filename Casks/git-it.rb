@@ -1,18 +1,17 @@
 cask 'git-it' do
-  version '4.2.3'
-  sha256 '81ea8d0a675286f6d6ed958c68456f13c9315704191e747b4227dec4f0ef54ad'
+  version '4.4.0'
+  sha256 'b96c06bca744af94e2f035824fbd16f59673c4c454fd4bf96aa4bde965fe711d'
 
   url "https://github.com/jlord/git-it-electron/releases/download/#{version}/Git-it-Mac-x64.zip"
-  appcast 'https://github.com/jlord/git-it-electron/releases.atom',
-          checkpoint: '2ec735bc7d4f679ba67ccfbdfd1af29943e9f5c67bd56c46706b644bb8782283'
+  appcast 'https://github.com/jlord/git-it-electron/releases.atom'
   name 'Git-it'
   homepage 'https://github.com/jlord/git-it-electron'
 
-  app 'Git-it-darwin-x64/Git-it.app'
+  app 'Git-it-Mac-x64/Git-it.app'
 
-  zap delete: [
-                '~/Library/Application Support/Git-it',
-                '~/Library/Preferences/com.electron.git-it.helper.plist',
-                '~/Library/Preferences/com.electron.git-it.plist',
-              ]
+  zap trash: [
+               '~/Library/Application Support/Git-it',
+               '~/Library/Preferences/com.electron.git-it.helper.plist',
+               '~/Library/Preferences/com.electron.git-it.plist',
+             ]
 end

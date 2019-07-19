@@ -4,8 +4,7 @@ cask 'eintopf' do
 
   # github.com/mazehall/eintopf was verified as official when first introduced to the cask
   url "https://github.com/mazehall/eintopf/releases/download/#{version}/eintopf_#{version}-x64.dmg"
-  appcast 'https://github.com/mazehall/eintopf/releases.atom',
-          checkpoint: '2f683218039482487cb26a62f378cef879b5504f694736b58c14663bcd6bd978'
+  appcast 'https://github.com/mazehall/eintopf/releases.atom'
   name 'Eintopf'
   homepage 'https://eintopf.io/'
 

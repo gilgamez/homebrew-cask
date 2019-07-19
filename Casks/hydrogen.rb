@@ -4,10 +4,11 @@ cask 'hydrogen' do
 
   # downloads.sourceforge.net/hydrogen was verified as official when first introduced to the cask
   url "https://downloads.sourceforge.net/hydrogen/Hydrogen-#{version}.dmg"
-  appcast 'https://sourceforge.net/projects/hydrogen/rss?path=/Hydrogen',
-          checkpoint: 'dd41efb784551287f8a7314cd695a62b15827bbe9a36072cdeed82d837f75689'
+  appcast 'https://sourceforge.net/projects/hydrogen/rss?path=/Hydrogen'
   name 'Hydrogen'
-  homepage 'http://www.hydrogen-music.org/hcms/'
+  homepage 'http://www.hydrogen-music.org/'
+
+  depends_on macos: '>= :sierra'
 
   app 'hydrogen.app'
 end

@@ -1,12 +1,18 @@
 cask 'xrg' do
-  version '2.0.0'
-  sha256 '9c963b1ab5ddd4dba49e0e085e63e84b31613eff3e155f5e3dbb55c0abcfbe46'
+  version '2.6.0'
+  sha256 '682f0ccea561b6362d5eeb9e25bf1f611f223137908c692769f518ebda861f9b'
 
   url "https://download.gauchosoft.com/xrg/XRG-release-#{version}.zip"
-  appcast 'http://www.gauchosoft.com/Products/XRG/',
-          checkpoint: '28e09c94daac04fa2bb14cfd3bbf156fc20eaaa2bb1bc75cf274b38b9a9d0b01'
+  appcast 'https://gauchosoft.com/Products/XRG/'
   name 'XRG'
-  homepage 'http://www.gauchosoft.com/Products/XRG/'
+  homepage 'https://gauchosoft.com/Products/XRG/'
 
   app 'XRG.app'
+
+  zap trash: [
+               '~/Library/Caches/com.apple.helpd/Generated/XRG Help*',
+               '~/Library/Caches/com.piatekjimenez.XRG',
+               '~/Library/Cookies/com.piatekjimenez.XRG.binarycookies',
+               '~/Library/Preferences/com.piatekjimenez.XRG.plist',
+             ]
 end

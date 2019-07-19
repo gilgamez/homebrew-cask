@@ -1,18 +1,22 @@
 cask 'trailer' do
-  version '1.5.5'
-  sha256 '5af1ed7d576bb79c0b964b0a2b2597286f7a170118512f19cbf0f9ef9227394d'
+  version '1.6.16'
+  sha256 '45ec1b8795a013f73027d66d1c70e6deaf5f413917f91354c770f9203f236019'
 
-  url "https://ptsochantaris.github.io/trailer/trailer#{version.no_dots}.zip"
-  appcast 'https://ptsochantaris.github.io/trailer/appcast.xml',
-          checkpoint: '7cf2e300d7276c1b825e4d69c3d1cd925e82575cec89a7035e2ae287488f75cb'
+  # github.com/ptsochantaris/trailer was verified as official when first introduced to the cask
+  url "https://github.com/ptsochantaris/trailer/releases/download/#{version}/trailer#{version.no_dots}.zip"
+  appcast 'https://github.com/ptsochantaris/trailer/releases.atom'
   name 'Trailer'
   homepage 'https://ptsochantaris.github.io/trailer/'
 
   app 'Trailer.app'
 
-  zap delete: [
-                '~/Library/Application Support/com.housetrip.Trailer',
-                '~/Library/Caches/com.housetrip.Trailer',
-                '~/Library/Preferences/com.housetrip.Trailer.plist',
-              ]
+  uninstall login_item: 'Trailer',
+            quit:       'com.housetrip.Trailer'
+
+  zap trash: [
+               '~/Library/Application Support/com.housetrip.Trailer',
+               '~/Library/Caches/com.housetrip.Trailer',
+               '~/Library/Group Containers/group.Trailer',
+               '~/Library/Preferences/com.housetrip.Trailer.plist',
+             ]
 end

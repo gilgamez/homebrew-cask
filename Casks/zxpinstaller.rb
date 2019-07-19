@@ -1,15 +1,14 @@
 cask 'zxpinstaller' do
-  version '1.5.0'
-  sha256 'fe54a02b891c99d4452f723447166e2d1da0c3a47a3ebe7b9762ed2243963ba4'
+  version '1.6.3'
+  sha256 'f9ffa59008030f1e73bc7f7d99b5aac0c5fed94b2c8d6ba6de35e5e6edb8d11a'
 
-  # github.com/CreativeDo/ZXPInstaller was verified as official when first introduced to the cask
-  url "https://github.com/CreativeDo/ZXPInstaller/releases/download/#{version}/ZXPInstaller.dmg"
-  appcast 'https://github.com/CreativeDo/ZXPInstaller/releases.atom',
-          checkpoint: 'b90c69ba778b9321c00765c0d04e0e1d6aa38db8a88b49cf4ba86928108b020a'
+  # github.com/guideguide/ZXPInstaller was verified as official when first introduced to the cask
+  url "https://github.com/guideguide/ZXPInstaller/releases/download/#{version}/ZXPInstaller.dmg"
+  appcast 'https://github.com/guideguide/ZXPInstaller/releases.atom'
   name 'ZXPInstaller'
-  homepage 'http://zxpinstaller.com/'
+  homepage 'https://zxpinstaller.com/'
 
   app 'ZXPInstaller.app'
 
-  zap delete: '~/Library/Preferences/com.electron.zxpinstaller.plist'
+  zap trash: '~/Library/Preferences/com.electron.zxpinstaller.plist'
 end

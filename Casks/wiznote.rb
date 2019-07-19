@@ -1,10 +1,12 @@
 cask 'wiznote' do
-  version '2.4.4,2017-03-14'
-  sha256 '35090576e94ad67f84c213571818fe44cf45ebc0ad1a977a8a53b2a0d1f95ea6'
+  version '2.7.5,2019-04-16'
+  sha256 'c12a79f12287013d9f817674d11c18e054ab82d3c55605db5d39d06267c2f3f9'
 
-  url "http://get.wiz.cn/wiznote-macos-#{version.after_comma}.dmg"
+  url "https://get.wiz.cn/wiznote-macos-#{version.after_comma}.dmg"
+  appcast 'https://www.macupdater.net/cgi-bin/check_urls/check_url_redirect.cgi?url=http://url.wiz.cn/u/mac',
+          configuration: version.after_comma
   name 'WizNote'
-  homepage 'http://www.wiz.cn/wiznote-mac.html'
+  homepage 'https://www.wiz.cn/wiznote-mac.html'
 
   app 'WizNote.app'
 end

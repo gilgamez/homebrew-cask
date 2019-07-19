@@ -1,13 +1,18 @@
 cask 'qutebrowser' do
-  version '0.10.0'
-  sha256 'ba0202df8af6905d5b823bafdc04415853f897c06cdbbb6e40af9ed5e602c1d2'
+  version '1.7.0'
+  sha256 '7e99facc4b886c64b84ad13f22e5694faa39a7cda73519816b60cc5df5945b81'
 
   # github.com/qutebrowser/qutebrowser was verified as official when first introduced to the cask
   url "https://github.com/qutebrowser/qutebrowser/releases/download/v#{version}/qutebrowser-#{version}.dmg"
-  appcast 'https://github.com/qutebrowser/qutebrowser/releases.atom',
-          checkpoint: 'ee0a69fe4e86f27d0d7127cd7492c01f98ad1120d9fa0bdaa1791937199aba41'
+  appcast 'https://github.com/qutebrowser/qutebrowser/releases.atom'
   name 'qutebrowser'
   homepage 'https://www.qutebrowser.org/'
 
   app 'qutebrowser.app'
+
+  zap trash: [
+               '~/Library/Application Support/qutebrowser',
+               '~/Library/Caches/qutebrowser',
+               '~/Library/Preferences/qutebrowser',
+             ]
 end

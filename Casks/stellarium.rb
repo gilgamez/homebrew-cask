@@ -1,15 +1,16 @@
 cask 'stellarium' do
-  version '0.15.2'
-  sha256 'c3764943e2b5ec3286f1a5737dbce22879710a8ad611df5f846bbd39459ba7ad'
+  version '0.19.1'
+  sha256 'e2d0fc688dd8e47c6f420610e4491003d519926c9ba1e5fffb0d5e17835b586d'
 
-  # sourceforge.net/stellarium was verified as official when first introduced to the cask
-  url "https://downloads.sourceforge.net/stellarium/Stellarium-#{version}.dmg"
-  appcast 'https://sourceforge.net/projects/stellarium/rss',
-          checkpoint: '6ca55293917be3015e40ce49c222567267deb5c9a1ee8e3c0073e0c45909355a'
+  # github.com/Stellarium/stellarium was verified as official when first introduced to the cask
+  url "https://github.com/Stellarium/stellarium/releases/download/v#{version}/Stellarium-#{version}.dmg"
+  appcast 'https://github.com/Stellarium/stellarium/releases.atom'
   name 'Stellarium'
-  homepage 'http://stellarium.org/'
+  homepage 'https://stellarium.org/'
+
+  depends_on macos: '>= :yosemite'
 
   app 'Stellarium.app'
 
-  zap delete: '~/Library/Preferences/Stellarium'
+  zap trash: '~/Library/Preferences/Stellarium'
 end

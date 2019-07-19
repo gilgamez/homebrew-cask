@@ -1,11 +1,23 @@
 cask 'zulip' do
-  version :latest
-  sha256 :no_check
+  version '2.3.82'
+  sha256 '368d7ddcb672d6e6e3428ff56e5330f69eae0c2b80e9f088a0e51131ffefdaf8'
 
-  # zulip.com was verified as official when first introduced to the cask
-  url 'https://zulip.com/dist/apps/mac/Zulip-latest.dmg'
+  # github.com/zulip/zulip-electron was verified as official when first introduced to the cask
+  url "https://github.com/zulip/zulip-electron/releases/download/v#{version}/Zulip-#{version}.zip"
+  appcast 'https://github.com/zulip/zulip-electron/releases.atom'
   name 'Zulip'
-  homepage 'https://www.zulip.org/'
+  homepage 'https://zulipchat.com/'
+
+  auto_updates true
 
   app 'Zulip.app'
+
+  zap trash: [
+               '~/Library/Application Support/Zulip',
+               '~/Library/Caches/org.zulip.zulip-electron.helper',
+               '~/Library/Logs/Zulip',
+               '~/Library/Preferences/org.zulip.zulip-electron.helper.plist',
+               '~/Library/Preferences/org.zulip.zulip-electron.plist',
+               '~/Library/Saved Application State/org.zulip.zulip-electron.savedState',
+             ]
 end

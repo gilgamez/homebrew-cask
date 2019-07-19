@@ -4,10 +4,9 @@ cask 'moscow-ml' do
 
   # github.com/kfl/mosml was verified as official when first introduced to the cask
   url "https://github.com/kfl/mosml/releases/download/ver-#{version}/mosml-#{version}.pkg"
-  appcast 'https://github.com/kfl/mosml/releases.atom',
-          checkpoint: 'cfcbf13e545b295cc08a59c5887b5727aa543f3e5dc341310923edf7e29fb788'
+  appcast 'https://github.com/kfl/mosml/releases.atom'
   name 'Moscow ML'
-  homepage 'http://mosml.org/'
+  homepage 'https://mosml.org/'
 
   pkg "mosml-#{version}.pkg"
 

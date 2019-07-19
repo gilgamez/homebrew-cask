@@ -4,14 +4,12 @@ cask 'heaven' do
 
   url "https://assets.unigine.com/d/Unigine_Heaven-#{version}.dmg"
   name 'Heaven Benchmark'
-  homepage 'https://unigine.com/products/benchmarks/heaven'
-
-  depends_on macos: '>= mountain_lion'
+  homepage 'https://benchmark.unigine.com/heaven'
 
   app 'Heaven.app'
 
-  zap delete: [
-                '~/Library/Application Support/Heaven',
-                '~/Library/Saved Application State/com.Unigine.Heaven.savedState',
-              ]
+  zap trash: [
+               '~/Library/Application Support/Heaven',
+               '~/Library/Saved Application State/com.Unigine.Heaven.savedState',
+             ]
 end

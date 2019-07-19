@@ -1,11 +1,10 @@
 cask 'splice' do
-  version '2.2.2-201701051612'
-  sha256 'de05ec24a6d14298888463d376189fcf059224760ea5fccc144c9e97c8b62d0f'
+  version '3.5.4'
+  sha256 '9fb00aab3fe59db68eeef46356a19253fd387d40000430f7e7f42cd9e03470b5'
 
-  # amazonaws.com/spliceosx was verified as official when first introduced to the cask
-  url "https://s3-us-west-1.amazonaws.com/spliceosx/Splice.app-#{version}.zip"
-  appcast 'https://splice.com/appcast.xml',
-          checkpoint: 'ada6b14ef4fbc779f2fba277da11f09b4b87de6c593eacc79d9da1cd5254cea1'
+  # splicedesktop.s3.amazonaws.com was verified as official when first introduced to the cask
+  url 'https://splicedesktop.s3.amazonaws.com/darwin/stable/Splice.app.zip'
+  appcast 'https://api.splice.com/v2/desktop/darwin/stable/latest?v=0.0.0'
   name 'Splice'
   homepage 'https://splice.com/'
 
@@ -13,9 +12,9 @@ cask 'splice' do
 
   uninstall quit: 'com.splice.Splice'
 
-  zap delete: [
-                '~/Library/Application Support/*Splice*',
-                '~/Library/Caches/com.splice*',
-                '~/Library/Preferences/com.splice*',
-              ]
+  zap trash: [
+               '~/Library/Application Support/*Splice*',
+               '~/Library/Caches/com.splice*',
+               '~/Library/Preferences/com.splice*',
+             ]
 end

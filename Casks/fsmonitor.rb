@@ -1,25 +1,26 @@
 cask 'fsmonitor' do
-  version '79'
-  sha256 'b625147eabf84011548e7ddbb356e132bfcdd6b74e556169ac31c2d089127026'
+  version '116'
+  sha256 'b82c0fd1719775f27ad7e452c1b14449434ae48df824a1c34bbe5e2a365b023e'
 
   # tristan-software.ch/FSMonitor was verified as official when first introduced to the cask
   url "https://tristan-software.ch/FSMonitor/Archives/FSMonitor_#{version}.zip"
+  appcast 'https://fsmonitor.com/FSMonitor/Archives/appcast.xml'
   name 'FSMonitor'
-  homepage 'http://fsmonitor.com/'
+  homepage 'https://fsmonitor.com/'
+
+  auto_updates true
 
   app 'FSMonitor.app'
 
-  postflight do
-    suppress_move_to_applications
-  end
+  uninstall delete:    '/Library/PrivilegedHelperTools/com.tristan.fseventstool',
+            launchctl: 'com.tristan.fseventstool'
 
-  zap delete: [
-                '/Library/LaunchDaemons/com.tristan.fseventstool.plist',
-                '/Library/PrivilegedHelperTools/com.tristan.fseventstool',
-                '/Users/Shared/FSMonitor',
-                '~/Library/Application Support/FSMonitor',
-                '~/Library/Application Support/com.tristan.FSMonitor',
-                '~/Library/Caches/com.tristan.FSMonitor',
-                '~/Library/Preferences/com.tristan.FSMonitor.plist',
-              ]
+  zap trash: [
+               '/Users/Shared/FSMonitor',
+               '~/Library/Application Support/FSMonitor',
+               '~/Library/Application Support/com.tristan.FSMonitor',
+               '~/Library/Caches/com.tristan.FSMonitor',
+               '~/Library/Preferences/com.tristan.FSMonitor.plist',
+               '~/Library/Saved Application State/com.tristan.FSMonitor.savedState',
+             ]
 end

@@ -5,8 +5,7 @@ cask 'relaunch64' do
 
   # github.com/sjPlot/Relaunch64 was verified as official when first introduced to the cask
   url "https://github.com/sjPlot/Relaunch64/releases/download/#{version}/Relaunch64_#{version}_OS_X_app.zip"
-  appcast 'https://github.com/sjPlot/Relaunch64/releases.atom',
-          checkpoint: '5abcb08d6650c2d81d27d678af3095629f8db4a36807961a0813c58bbc1d6e7d'
+  appcast 'https://github.com/sjPlot/Relaunch64/releases.atom'
   name 'Relaunch64'
   homepage 'http://www.popelganda.de/relaunch64.html'
 

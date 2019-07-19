@@ -1,23 +1,24 @@
 cask 'porting-kit' do
-  version '2.5.21'
-  sha256 '23f3a57614ffe66c04ba8ed491d56fb2fcea2fe3fc13b74ef487b774355c23dc'
+  version '2.9.613'
+  sha256 '34b08b5dcfbd39ba57310b15eab15e64445447fe39da63a6ef4d49d1bd3e921a'
 
   url "http://portingkit.com/kit/Porting%20Kit%20#{version}.zip"
-  appcast 'http://portingkit.com/kit/updatecast.xml',
-          checkpoint: '83135a30ba45efce7251041be4ddd8be9d9b7cbdf4071009a361a53bf5a48b14'
+  appcast 'http://portingkit.com/kit/updatecast.xml'
   name 'Porting Kit'
   homepage 'http://portingkit.com/en/'
 
   auto_updates true
-  conflicts_with cask: 'caskroom/versions/porting-kit-legacy'
+  conflicts_with cask: 'porting-kit-legacy'
 
   app 'Porting Kit.app'
 
-  zap delete: [
-                '~/Library/Preferences/edu.ufrj.vitormm.Porting-Kit.plist',
-                '~/Library/Application Support/Porting-Kit',
-                '~/Library/Saved Application State/edu.ufrj.vitormm.Porting-Kit.savedState',
-                '~/Library/Caches/edu.ufrj.vitormm.Porting-Kit',
-                '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/edu.ufrj.vitormm.porting-kit.sfl',
-              ]
+  zap trash: [
+               '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/edu.ufrj.vitormm.porting-kit.sfl*',
+               '~/Library/Application Support/Porting-Kit',
+               '~/Library/Caches/edu.ufrj.vitormm.Porting-Kit',
+               '~/Library/Cookies/edu.ufrj.vitormm.Porting-Kit.binarycookies',
+               '~/Library/Preferences/edu.ufrj.vitormm.Porting-Kit.plist',
+               '~/Library/Saved Application State/edu.ufrj.vitormm.Porting-Kit.savedState',
+               '~/Library/WebKit/edu.ufrj.vitormm.Porting-Kit',
+             ]
 end

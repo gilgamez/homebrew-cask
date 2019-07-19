@@ -4,8 +4,7 @@ cask 'prismatik' do
 
   # github.com/woodenshark/Lightpack was verified as official when first introduced to the cask
   url "https://github.com/woodenshark/Lightpack/releases/download/#{version}/Prismatik.#{version}.dmg"
-  appcast 'https://github.com/woodenshark/Lightpack/releases.atom',
-          checkpoint: 'ed21f0f168d0db0f3764fdb42fa027c394f3df5781cd504526393422fe522351'
+  appcast 'https://github.com/woodenshark/Lightpack/releases.atom'
   name 'Prismatik'
   homepage 'https://lightpack.tv/promo/lightpack1.php'
 

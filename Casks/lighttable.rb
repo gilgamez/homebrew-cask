@@ -4,17 +4,16 @@ cask 'lighttable' do
 
   # github.com/LightTable/LightTable was verified as official when first introduced to the cask
   url "https://github.com/LightTable/LightTable/releases/download/#{version}/lighttable-#{version}-mac.tar.gz"
-  appcast 'https://github.com/LightTable/LightTable/releases.atom',
-          checkpoint: '6195e1333c6a146c67861a8c7269e8c8405f04d628a0aa4742e159d3bfe98600'
+  appcast 'https://github.com/LightTable/LightTable/releases.atom'
   name 'Light Table'
   homepage 'http://lighttable.com/'
 
   app "lighttable-#{version}-mac/LightTable.app"
   binary "lighttable-#{version}-mac/light"
 
-  zap delete: [
-                '~/Library/Application Support/LightTable/plugins',
-                '~/Library/Application Support/LightTable/settings',
-                '~/Library/Preferences/com.kodowa.LightTable.plist',
-              ]
+  zap trash: [
+               '~/Library/Application Support/LightTable/plugins',
+               '~/Library/Application Support/LightTable/settings',
+               '~/Library/Preferences/com.kodowa.LightTable.plist',
+             ]
 end

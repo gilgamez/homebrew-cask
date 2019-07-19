@@ -4,8 +4,7 @@ cask 'sauerbraten' do
 
   # sourceforge.net/sauerbraten was verified as official when first introduced to the cask
   url "https://downloads.sourceforge.net/sauerbraten/sauerbraten_#{version.dots_to_underscores}_collect_edition_macosx.dmg"
-  appcast 'https://sourceforge.net/projects/sauerbraten/rss',
-          checkpoint: '735d408a80dbcd098dbaca3946b69de28519b8ffe8b2df7ea6c51fd48553ed39'
+  appcast 'https://sourceforge.net/projects/sauerbraten/rss'
   name 'Cube 2: Sauerbraten'
   homepage 'http://sauerbraten.org/'
 

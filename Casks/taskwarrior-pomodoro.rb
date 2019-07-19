@@ -1,11 +1,9 @@
 cask 'taskwarrior-pomodoro' do
-  version '1.5.0'
-  sha256 '196c38ec03758ff27a16d1341d4ed5475be8f00f3a1cc963ba321c2c3a502c4d'
+  version '1.8.0'
+  sha256 '07aad9949cf7ec5752d5da87333c52f07654b0c480b18779afaec0f5debb488a'
 
-  # coddingtonbear-public.s3.amazonaws.com/github/taskwarrior-pomodoro was verified as official when first introduced to the cask
-  url "https://coddingtonbear-public.s3.amazonaws.com/github/taskwarrior-pomodoro/releases/taskwarrior-pomodoro-#{version}.dmg"
-  appcast 'https://github.com/coddingtonbear/taskwarrior-pomodoro/releases.atom',
-          checkpoint: '6b898b32196fc2ce0808efaa92d2a343fd0697aec7cffcc285d95c48c59a4a89'
+  url "https://github.com/coddingtonbear/taskwarrior-pomodoro/releases/download/v#{version}/taskwarrior-pomodoro-#{version}.dmg"
+  appcast 'https://github.com/coddingtonbear/taskwarrior-pomodoro/releases.atom'
   name 'Taskwarrior-Pomodoro'
   homepage 'https://github.com/coddingtonbear/taskwarrior-pomodoro'
 

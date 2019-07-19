@@ -1,10 +1,9 @@
 cask 'splitshow' do
-  version '0.9.8-alpha3'
-  sha256 'ca1b9e296f61b3bab58bf4b23b90e84483471b0fe31c8209d3c46e338fceb652'
+  version '0.9.10-alpha'
+  sha256 '2bd1a68dda450e1052a54499731f710d119728f85f34187436cdffb5707dccd4'
 
-  url "https://github.com/mpflanzer/splitshow/releases/download/#{version}/SplitShow.app.zip"
-  appcast 'https://github.com/mpflanzer/splitshow/releases.atom',
-          checkpoint: '14daaed9d6c9596b938cec20cbbd27b7cdced0c096e570938c42b762c803137c'
+  url "https://github.com/mpflanzer/splitshow/releases/download/v.#{version}/SplitShow.app.zip"
+  appcast 'https://github.com/mpflanzer/splitshow/releases.atom'
   name 'SplitShow'
   homepage 'https://github.com/mpflanzer/splitshow'
 

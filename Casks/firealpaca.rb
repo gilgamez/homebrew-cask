@@ -2,9 +2,12 @@ cask 'firealpaca' do
   version :latest
   sha256 :no_check
 
-  url 'http://firealpaca.com/download.php?os=mac&key=17813449013210197561d4f66c5aca8c'
+  url 'https://firealpaca.com/download/mac',
+      referer: 'https://firealpaca.com/'
   name 'Fire Alpaca'
-  homepage 'http://firealpaca.com/'
+  homepage 'https://firealpaca.com/'
 
   app 'FireAlpaca.app'
+
+  zap trash: '~/Library/Application Support/FireAlpaca'
 end

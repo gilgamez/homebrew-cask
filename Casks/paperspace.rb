@@ -1,9 +1,9 @@
 cask 'paperspace' do
-  version :latest
-  sha256 :no_check
+  version '7.1.0.7'
+  sha256 'bd1c1b7bb9f68b55bfe5ffce04e5c136be65dde231933dd2cd10e6a28fa0790b'
 
-  # s3-us-west-1.amazonaws.com/ps-receiver was verified as official when first introduced to the cask
-  url 'https://s3-us-west-1.amazonaws.com/ps-receiver/darwin/Paperspace.dmg'
+  # ps-receiver.s3.amazonaws.com was verified as official when first introduced to the cask
+  url "https://ps-receiver.s3.amazonaws.com/darwin/Paperspace-#{version}.dmg"
   name 'Paperspace'
   homepage 'https://www.paperspace.com/'
 

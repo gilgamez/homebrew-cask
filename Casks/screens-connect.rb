@@ -1,32 +1,32 @@
 cask 'screens-connect' do
-  version '4.2'
-  sha256 '87546e86b647c03ccea2cf3f0f1dff0ab8adc33e19888077ea35956fb7848e09'
+  version '4.8.6130,1552077038'
+  sha256 '5d59d48242198cebdc4cc858a84cc8faa795729e2ac52ce10cdc9cac2c71b05c'
 
-  # edovia.com was verified as official when first introduced to the cask
-  url "https://download.edovia.com/screensconnect/ScreensConnect_#{version}.zip"
-  appcast 'https://updates.edovia.com/com.edovia.screens.connect.4.mac/appcast.xml',
-          checkpoint: '278cc7056cc914f6d5e555e584cf241e096d9138e0f9bda50fcd68aeed4e8b75'
+  # dl.devmate.com/com.edovia.Screens-Connect was verified as official when first introduced to the cask
+  url "https://dl.devmate.com/com.edovia.Screens-Connect/#{version.patch}/#{version.after_comma}/ScreensConnect-#{version.patch}.zip"
+  appcast 'https://updates.devmate.com/com.edovia.Screens-Connect.xml'
   name 'Screens Connect'
-  homepage 'https://screensconnect.com/'
+  homepage 'https://screensconnect.com/en/'
 
   depends_on macos: '>= :el_capitan'
 
   app 'Screens Connect.app'
 
   # Uninstall script can fail when trying to remove legacy PKGIDS
-  # Original discussion: https://github.com/caskroom/homebrew-cask/pull/8833
+  # Original discussion: https://github.com/Homebrew/homebrew-cask/pull/8833
   uninstall quit:      'com.edovia.Screens-Connect',
             launchctl: [
                          'com.edovia.Screens-Connect.launcher',
                          'com.edovia.screens.connect',
                        ],
             script:    {
-                         executable:   'Screens Connect.app/Contents/Resources/sc-uninstaller.tool',
+                         executable:   "#{appdir}/Screens Connect.app/Contents/Resources/sc-uninstaller.tool",
                          must_succeed: false,
+                         sudo:         true,
                        }
 
-  zap delete: [
-                '~/Library/Preferences/com.edovia.Screens-Connect.plist',
-                '~/Library/Preferences/com.edovia.ScreensConnect.Shared.plist',
-              ]
+  zap trash: [
+               '~/Library/Preferences/com.edovia.Screens-Connect.plist',
+               '~/Library/Preferences/com.edovia.ScreensConnect.Shared.plist',
+             ]
 end

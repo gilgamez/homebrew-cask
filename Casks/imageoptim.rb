@@ -1,10 +1,9 @@
 cask 'imageoptim' do
-  version '1.7.0.1'
-  sha256 'ebcf28a510bca4ecee44150e0c65c30f27c1db6cc25c213328c93ceb59643a8b'
+  version '1.8.8'
+  sha256 'f48ce652b8cbf0186e3a550d1dcd0ab81366d0662a3f01621d4cadd4af23cce3'
 
   url "https://imageoptim.com/ImageOptim#{version}.tar.bz2"
-  appcast 'https://imageoptim.com/appcast.xml',
-          checkpoint: '1b074695f05a7637f8d494835401f0e74f03498292f1df15282ace1825cc9f40'
+  appcast 'https://imageoptim.com/appcast.xml'
   name 'ImageOptim'
   homepage 'https://imageoptim.com/mac'
 
@@ -12,10 +11,10 @@ cask 'imageoptim' do
 
   app 'ImageOptim.app'
 
-  zap delete: [
-                '~/Library/Preferences/net.pornel.ImageOptim.plist',
-                '~/Library/Caches/net.pornel.ImageOptim',
-                '~/Library/Caches/ImageOptimResults.db',
-                '~/Library/Saved Application State/net.pornel.ImageOptim.savedState',
-              ]
+  zap trash: [
+               '~/Library/Caches/net.pornel.ImageOptim',
+               '~/Library/Caches/ImageOptimResults.db',
+               '~/Library/Preferences/net.pornel.ImageOptim.plist',
+               '~/Library/Saved Application State/net.pornel.ImageOptim.savedState',
+             ]
 end

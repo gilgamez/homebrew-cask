@@ -1,12 +1,12 @@
 cask 'hype' do
-  version '3.6.1'
-  sha256 '5f8437a60234137fde4a1a22039f648175d26e29c858abc8ab6c75dde9e1e905'
+  version '4.0.1'
+  sha256 'f8fcf2cbd5b0e0412c6b7ee00c7f5fe7141514fd075e7acebf2081f2ec2c13d0'
 
   url 'https://tumult.com/hype/download/Hype.zip'
-  appcast 'https://tumult.com/hype/appcast_hype2.xml',
-          checkpoint: 'bd7c36fbc7696f1dd57d2121e6b0d6d051d811a0693c0c92f170f55b04201b00'
+  appcast "https://tumult.com/hype/appcast_hype#{version.major}.xml"
   name 'Tumult Hype'
   homepage 'https://tumult.com/hype/'
 
-  app "Hype #{version.major}.app"
+  # Renamed for consistency: app name is different in the Finder and in a shell
+  app "Hype#{version.major}.app", target: "Hype #{version.major}.app"
 end

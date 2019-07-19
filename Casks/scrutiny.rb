@@ -1,17 +1,18 @@
 cask 'scrutiny' do
-  version :latest
-  sha256 :no_check
+  version '9.0.7'
+  sha256 'c0a652dbca25ab14b77a4a37c8dea9e847f88e7c48af531fa39779c06012c8c5'
 
-  url 'http://peacockmedia.software/mac/scrutiny/scrutiny.dmg'
+  url 'https://peacockmedia.software/mac/scrutiny/scrutiny.dmg'
+  appcast 'https://peacockmedia.software/mac/scrutiny/version_history.html'
   name 'Scrutiny'
-  homepage 'http://peacockmedia.software/mac/scrutiny/'
+  homepage 'https://peacockmedia.software/mac/scrutiny/'
 
-  app 'Scrutiny.app'
+  app "Scrutiny #{version.major}.app"
 
-  zap delete: [
-                '~/Library/Application Support/Scrutiny5',
-                '~/Library/Caches/com.peacockmedia.Scrutiny5',
-                '~/Library/Preferences/com.peacockmedia.Scrutiny5.plist',
-                '~/Library/Cookies/com.peacockmedia.Scrutiny5.binarycookies',
-              ]
+  zap trash: [
+               "~/Library/Application Support/Scrutiny #{version.major}",
+               "~/Library/Caches/com.peacockmedia.Scrutiny-#{version.major}",
+               "~/Library/Cookies/com.peacockmedia.Scrutiny-#{version.major}.binarycookies",
+               "~/Library/Preferences/com.peacockmedia.Scrutiny-#{version.major}.plist",
+             ]
 end

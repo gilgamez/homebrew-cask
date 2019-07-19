@@ -1,9 +1,10 @@
 cask 'liclipse' do
-  version '3.5.0'
-  sha256 '22099c6ff59c91670f1878bb6a8ca97e02f5ad6c76d66c0b64eced147adfe85a'
+  version '5.2.4,u9a8kuvxrcxdw71'
+  sha256 'dac86c4f478d67dbb20787aa9857fbf92ebe942c2ebef84c049cbec58d9009f1'
 
-  # mediafire.com/file/pw05os9ewtfb35k was verified as official when first introduced to the cask
-  url "http://www.mediafire.com/file/pw05os9ewtfb35k/liclipse_#{version}_macosx.cocoa.x86_64.dmg"
+  # mediafire.com/file was verified as official when first introduced to the cask
+  url "https://www.mediafire.com/file/#{version.after_comma}/liclipse_#{version.before_comma}_macosx.cocoa.x86_64.dmg"
+  appcast 'https://www.liclipse.com/download.html'
   name 'LiClipse'
   homepage 'https://www.liclipse.com/'
 

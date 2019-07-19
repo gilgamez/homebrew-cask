@@ -1,14 +1,27 @@
 cask 'sip' do
-  version '1.0'
-  sha256 '4315284ec5e409d4eb32a815488b5a6ec5d4b875dacf72d96a52aa6bbeb40c59'
+  if MacOS.version <= :sierra
+    version '1.1.6'
+    sha256 'bb170a54090aab5703388a3e7a22e9cf4e4d98e84f5658893e1e6f9677b9a51e'
+  else
+    version '2.0.9'
+    sha256 'cd853d27968c6696dfbcd4e0a708d349a15b6646b510d4eb25969ab21936e41a'
+  end
 
-  url 'http://sipapp.io/download/sip.dmg'
-  appcast 'http://sipapp.io/sparkle/sip.xml',
-          checkpoint: 'ff3700898f4eca49b688ff5edda4613c11cb9d02983825017664a05f95a78e69'
+  url "https://sipapp.io/updates/v#{version.major}/sip-#{version}.zip"
+  appcast "https://sipapp.io/updates/v#{version.major}/sip.xml"
   name 'Sip'
-  homepage 'http://sipapp.io/'
+  homepage 'https://sipapp.io/'
 
-  depends_on macos: '>= :el_capitan'
+  depends_on macos: '>= :sierra'
 
   app 'Sip.app'
+
+  zap trash: [
+               '~/Library/Application Support/Sip',
+               '~/Library/Application Support/io.sipapp.Sip-paddle',
+               '~/Library/Caches/io.sipapp.Sip-paddle',
+               '~/Library/Cookies/io.sipapp.Sip-paddle.binarycookies',
+               '~/Library/Preferences/io.sipapp.Sip-paddle.plist',
+               '~/Library/Saved Application State/io.sipapp.Sip-paddle.savedState',
+             ]
 end

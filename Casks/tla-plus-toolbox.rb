@@ -1,15 +1,12 @@
 cask 'tla-plus-toolbox' do
-  version '1.5.2'
-  sha256 '4c35713d1c5cdb8c4b3883fcd002098dcc1d2e64f9251455857fcb71a44d00e6'
+  version '1.6.0'
+  sha256 'ecf63a0676f381946e4438032b9ce97481a3dc89114713bab566585be28f1507'
 
-  # tla.msr-inria.inria.fr/tlatoolbox was verified as official when first introduced to the cask
-  url "https://tla.msr-inria.inria.fr/tlatoolbox/products/TLAToolbox-#{version}-macosx.cocoa.x86_64.zip"
+  # github.com/tlaplus/tlaplus was verified as official when first introduced to the cask
+  url "https://github.com/tlaplus/tlaplus/releases/download/v#{version}/TLAToolbox-#{version}-macosx.cocoa.x86_64.zip"
+  appcast 'https://github.com/tlaplus/tlaplus/releases.atom'
   name 'TLA+ Toolbox'
   homepage 'https://lamport.azurewebsites.net/tla/toolbox.html'
 
   app 'TLA+ Toolbox.app'
-
-  caveats do
-    depends_on_java
-  end
 end

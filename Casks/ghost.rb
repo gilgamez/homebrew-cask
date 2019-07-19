@@ -1,13 +1,20 @@
 cask 'ghost' do
-  version '1.2.1'
-  sha256 'a40c46a597160cdb253bfa2866e3047eb2e4c132622597fd23f6e1be3ed7ebb7'
+  version '1.7.0'
+  sha256 'ce719dd50feec6cf811fdcac74edea937b20bc767be6fe086b8574f9b1686b3c'
 
   # github.com/TryGhost/Ghost-Desktop was verified as official when first introduced to the cask
-  url "https://github.com/TryGhost/Ghost-Desktop/releases/download/v#{version}/ghost-desktop-#{version}-osx.zip"
-  appcast 'https://github.com/TryGhost/Ghost-Desktop/releases.atom',
-          checkpoint: '197e1e03c5ca68fa356fb9ab76f03b5e9e0e01e5e73d85e9d5c2fed8705b3472'
+  url "https://github.com/TryGhost/Ghost-Desktop/releases/download/v#{version}/ghost-desktop-#{version}-osx.dmg"
+  appcast 'https://github.com/TryGhost/Ghost-Desktop/releases.atom'
   name 'Ghost Desktop'
   homepage 'https://ghost.org/downloads/'
 
   app 'Ghost.app'
+
+  zap trash: [
+               '~/Library/Application Support/ghost-desktop',
+               '~/Library/Preferences/com.electron.ghost.helper.plist',
+               '~/Library/Preferences/com.electron.ghost.plist',
+               '~/Library/Saved Application State/com.electron.ghost.savedState',
+               '~/Library/Logs/Ghost',
+             ]
 end

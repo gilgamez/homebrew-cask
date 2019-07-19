@@ -1,18 +1,17 @@
 cask 'flash-player' do
-  version '25.0.0.127'
-  sha256 '93ff8de323e44a3bab4a99b38ea1ce1ae6234386f5b9b66c7291b10a12b34fb0'
+  version '32.0.0.223'
+  sha256 '27a6007470ec1cb17c5683d63cd1ca2c1661bdcb51af35ca5a1dfc2f5c612ae3'
 
-  # macromedia.com was verified as official when first introduced to the cask
-  url "https://fpdownload.macromedia.com/pub/flashplayer/updaters/#{version.major}/flashplayer_#{version.major}_sa.dmg"
-  appcast 'http://fpdownload2.macromedia.com/get/flashplayer/update/current/xml/version_en_mac_pl.xml',
-          checkpoint: '2b1fead2874fc8798351dec188583692bc626fdfd45585b0e4d40edbae70ceb1'
+  url "https://fpdownload.adobe.com/pub/flashplayer/updaters/#{version.major}/flashplayer_#{version.major}_sa.dmg"
+  appcast 'https://fpdownload.adobe.com/pub/flashplayer/update/current/xml/version_en_mac_pl.xml',
+          configuration: version.tr('.', ',')
   name 'Adobe Flash Player projector'
   homepage 'https://www.adobe.com/support/flashplayer/debug_downloads.html'
 
   app 'Flash Player.app'
 
-  zap delete: [
-                '~/Library/Caches/Adobe/Flash Player',
-                '~/Library/Logs/FlashPlayerInstallManager.log',
-              ]
+  zap trash: [
+               '~/Library/Caches/Adobe/Flash Player',
+               '~/Library/Logs/FlashPlayerInstallManager.log',
+             ]
 end

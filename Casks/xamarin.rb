@@ -6,11 +6,13 @@ cask 'xamarin' do
   name 'Xamarin Platform'
   homepage 'https://www.xamarin.com/platform'
 
+  conflicts_with cask: 'xamarin-studio'
+
   installer manual: 'Install Xamarin.app'
 
   uninstall delete: '/Applications/Xamarin Studio.app'
 
-  zap       delete: '~/Library/Developer/Xamarin'
+  zap trash: '~/Library/Developer/Xamarin'
 
   caveats do
     depends_on_java

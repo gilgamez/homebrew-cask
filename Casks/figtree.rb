@@ -1,8 +1,10 @@
 cask 'figtree' do
-  version '1.4.2'
-  sha256 '0474f07e4f0f0b2af2c83bf06cb3a3f13d13b8e41a5f41e6deb099f9992071bc'
+  version '1.4.4'
+  sha256 '4a11741143982a9b7fea78e60c8315ce8e8436eeb96ab3ee5376c53c83e54b9b'
 
-  url 'http://tree.bio.ed.ac.uk/download.php?id=90'
+  # github.com/rambaut/figtree was verified as official when first introduced to the cask
+  url "https://github.com/rambaut/figtree/releases/download/v#{version}/FigTree.v#{version}.dmg"
+  appcast 'https://github.com/rambaut/figtree/releases.atom'
   name 'FigTree'
   homepage 'http://tree.bio.ed.ac.uk/software/figtree/'
 

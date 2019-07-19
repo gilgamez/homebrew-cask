@@ -1,10 +1,9 @@
 cask 'mountain' do
-  version '1.6.4'
-  sha256 '7290dca93600e5c59cf797cae3f3bd874f2d9d79811969b9dad8586cf2a5c53f'
+  version '1.6.6'
+  sha256 '22496566734b7b610a24e3c7700b123a17c5502fdc1562d35d65c04ecf5e7070'
 
   url 'https://appgineers.de/mountain/files/Mountain.zip'
-  appcast 'https://appgineers.de/mountain/files/mountaincast.xml',
-          checkpoint: '26376efb3510b4804c540a105616362ae6fc009dd1aa85f99ea943bb27e88945'
+  appcast 'https://appgineers.de/mountain/files/mountaincast.xml'
   name 'Mountain'
   homepage 'https://appgineers.de/mountain/'
 

@@ -1,9 +1,10 @@
 cask 'beaker-browser' do
-  version :latest
-  sha256 :no_check
+  version '0.8.8'
+  sha256 '5753865f2641a7910e682996754408dc8f06123f34e11a126a94f4373253dab6'
 
-  # download.beakerbrowser.net/download was verified as official when first introduced to the cask
-  url 'https://download.beakerbrowser.net/download/latest/osx'
+  # github.com/beakerbrowser/beaker was verified as official when first introduced to the cask
+  url "https://github.com/beakerbrowser/beaker/releases/download/#{version}/beaker-browser-#{version}.dmg"
+  appcast 'https://github.com/beakerbrowser/beaker/releases.atom'
   name 'Beaker Browser'
   homepage 'https://beakerbrowser.com/'
 

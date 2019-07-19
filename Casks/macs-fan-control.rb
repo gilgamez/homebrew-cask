@@ -1,18 +1,19 @@
 cask 'macs-fan-control' do
-  if MacOS.version <= :snow_leopard
-    version '1.2.1.0'
-    sha256 '6e47db508e2fbb54c626a9ba37baeeda0d6acc920a9f07b6d7c3526fc11d898e'
-    url 'https://www.crystalidea.com/downloads/legacy/macsfancontrol_10.6.zip'
-  else
-    version :latest
-    sha256 :no_check
-    url 'https://www.crystalidea.com/downloads/macsfancontrol.zip'
-  end
+  version '1.4.12'
+  sha256 'a76239e1ad8a116dccf6d4387242792f8d8771dc60846d246455a3128ba6ff15'
 
+  # github.com/crystalidea/macs-fan-control was verified as official when first introduced to the cask
+  url "https://github.com/crystalidea/macs-fan-control/releases/download/v#{version}/macsfancontrol.zip"
+  appcast 'https://github.com/crystalidea/macs-fan-control/releases.atom'
   name 'Macs Fan Control'
   homepage 'https://www.crystalidea.com/macs-fan-control'
 
+  auto_updates true
+
   app 'Macs Fan Control.app'
 
-  zap delete: '~/Libary/Preferences/com.crystalidea.MacsFanControl.plist'
+  uninstall login_item: 'Macs Fan Control',
+            signal:     ['TERM', 'com.crystalidea.MacsFanControl']
+
+  zap trash: '~/Library/Preferences/com.crystalidea.macsfancontrol.plist'
 end

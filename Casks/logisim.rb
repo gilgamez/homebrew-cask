@@ -4,10 +4,11 @@ cask 'logisim' do
 
   # sourceforge.net/circuit was verified as official when first introduced to the cask
   url "https://downloads.sourceforge.net/circuit/#{version.sub(%r{\d+$}, 'x')}/#{version}/logisim-macosx-#{version}.tar.gz"
-  appcast 'https://sourceforge.net/projects/circuit/rss',
-          checkpoint: '9ab854d47ec39e47fbe76d0ba4177f228c25bbbd05ebd2286d5899695c8837ec'
+  appcast 'https://sourceforge.net/projects/circuit/rss'
   name 'Logisim'
   homepage 'http://www.cburch.com/logisim/'
 
   app 'Logisim.app'
+
+  zap trash: '~/Library/Preferences/com.cburch.logisim.plist'
 end

@@ -1,15 +1,13 @@
 cask 'pagico' do
-  version '7.4.2119'
-  sha256 'a04ad5b11c5b7e4082a191939135f7886fab626886c272b64a5a625dc6e7d2ba'
+  version '8.18.2405'
+  sha256 'c21443cd5b27bf995d7054551eef3fc1ae74a4626e223434c7488d0dd576805a'
 
-  url "https://www.pagico.com/downloads/Pagico_Desktop_r#{version.patch}.dmg"
+  url "https://www.pagico.com/downloads/Pagico_macOS_r#{version.patch}.dmg"
+  appcast 'https://www.pagico.com/api/pagico8.mac.xml'
   name 'Pagico'
   homepage 'https://www.pagico.com/'
 
-  depends_on macos: '>= :lion'
+  depends_on macos: '>= :sierra'
 
-  pkg 'Install Pagico.pkg'
-
-  uninstall pkgutil: 'com.pagico.*',
-            delete:  '/Applications/Pagico'
+  app 'Pagico.app'
 end

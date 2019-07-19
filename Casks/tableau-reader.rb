@@ -1,10 +1,17 @@
 cask 'tableau-reader' do
-  version '10.1.4'
-  sha256 '3152809ebd7ae11a0044619f099370d1cd6a6493e54cadd7429662b4d012e521'
+  version '2019.2.1'
+  sha256 '1f13609e357abf57132bf2ec04a2de36db2921d8b23b1660d2e79367da922b3f'
 
   url "https://downloads.tableau.com/tssoftware/TableauReader-#{version.dots_to_hyphens}.dmg"
+  appcast 'https://macupdater.net/cgi-bin/check_urls/check_url_redirect.cgi?url=https://www.tableau.com/downloads/reader/mac',
+          configuration: version.dots_to_hyphens
   name 'Tableau Reader'
   homepage 'https://www.tableau.com/products/reader'
 
-  app 'Tableau Reader.app'
+  pkg 'Tableau Reader.pkg'
+
+  uninstall pkgutil: [
+                       'com.tableausoftware.FLEXNet.*',
+                       'com.tableausoftware.Reader.app',
+                     ]
 end

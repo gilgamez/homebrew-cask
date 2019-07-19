@@ -1,11 +1,10 @@
 cask 'freecad' do
-  version '0.16-6706.f86a4e4'
-  sha256 '9d05b21103bfe0dd7de2ec006fc4c1baca3e7ff32d4b570d91e627caded40178'
+  version '0.18.2,16117'
+  sha256 '8ca8085379eaf4903fafa808c313e4b9659be846454597d27fd54184f71a8369'
 
   # github.com/FreeCAD/FreeCAD was verified as official when first introduced to the cask
-  url "https://github.com/FreeCAD/FreeCAD/releases/download/0.16/FreeCAD_#{version}-OSX-x86_64.dmg"
-  appcast 'https://github.com/FreeCAD/FreeCAD/releases.atom',
-          checkpoint: '02a4638deb1035edb9d7fd90503cf5c31133b95550629b7524b677dea67f1d6e'
+  url "https://github.com/FreeCAD/FreeCAD/releases/download/#{version.before_comma}/FreeCAD_#{version.major_minor}-#{version.after_comma}-OSX-x86_64-conda-Qt5-Py3.dmg"
+  appcast 'https://github.com/FreeCAD/FreeCAD/releases.atom'
   name 'FreeCAD'
   homepage 'https://www.freecadweb.org/'
 

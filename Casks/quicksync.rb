@@ -1,10 +1,11 @@
 cask 'quicksync' do
-  version '3.3'
-  sha256 'e3e64020e952dee692811119f966e1cf62bfc48c5ef110a39e5d92a20e9d0a3a'
+  version '4.0'
+  sha256 'afc5ee6705146ee2a83b73de0f6069e3e1d7c648639406c16615a4bde14e8a57'
 
-  url "http://www.gigaset.com/fileadmin/gigaset/images/CORE/QuickSync/Mac_V#{version}/QuickSync.dmg"
+  url "https://gse.gigaset.com/fileadmin/gigaset/images/CORE/QuickSync/Mac_#{version}/QuickSync.dmg"
+  appcast 'https://www.gigaset.com/hq_en/cms/service/support-detail/gigaset-quicksync-mac-version.html'
   name 'QuickSync'
-  homepage 'http://www.gigaset.com/en_US/kundenservice/downloads/quicksync/quicksync-fuer-mac.html'
+  homepage 'https://www.gigaset.com/hq_en/cms/home/support/support/downloads/quicksync/quicksync-for-mac.html'
 
   app 'QuickSync.app'
 end

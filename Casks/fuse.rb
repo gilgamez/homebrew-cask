@@ -1,11 +1,12 @@
 cask 'fuse' do
-  version '0.33.1.10445'
-  sha256 '6a80042d91772dc610063f513376069dd72e29d73613f867f30db4bf4fbaeb0c'
+  version '1.9.0'
+  sha256 '31e737086d546176f436a2792baca604487f529008a21c424610baec25146a20'
 
-  # fuse-dl.azureedge.net was verified as official when first introduced to the cask
-  url "https://fuse-dl.azureedge.net/releaseartifacts/fuse_osx_#{version.dots_to_underscores}.pkg"
+  # github.com/fuse-open/fuse-studio was verified as official when first introduced to the cask
+  url "https://github.com/fuse-open/fuse-studio/releases/download/#{version}/fuse_osx_#{version.dots_to_underscores}.pkg"
+  appcast 'https://github.com/fuse-open/fuse-studio/releases.atom'
   name 'Fuse Fusetools'
-  homepage 'https://www.fusetools.com/'
+  homepage 'https://fuse-open.github.io/'
 
   pkg "fuse_osx_#{version.dots_to_underscores}.pkg"
 

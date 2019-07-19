@@ -1,24 +1,31 @@
 cask 'iina' do
-  version '0.0.7'
-  sha256 '440eb7f480fcd902199dc53c63098f510c52a16ed14e3533ddff2d98bb2d46f3'
+  version '1.0.4'
+  sha256 'e4e4c6ea67e149a4508beb739a2249e2fc8df99a324f738bdcf75b0d3514ea8e'
 
-  # github.com/lhc70000/iina was verified as official when first introduced to the cask
-  url "https://github.com/lhc70000/iina/releases/download/v#{version}/IINA.v#{version}.dmg"
-  appcast 'https://github.com/lhc70000/iina/releases.atom',
-          checkpoint: '62bb9f89e66742a616ee3acf493dc7c06942bda7e9fe9f937af9d15ee45e5582'
+  url "https://dl-portal.iina.io/IINA.v#{version}.dmg"
+  appcast 'https://www.iina.io/appcast.xml'
   name 'IINA'
-  homepage 'https://lhc70000.github.io/iina/'
+  homepage 'https://iina.io/'
 
   auto_updates true
-  depends_on macos: '>= :yosemite'
+  conflicts_with cask: 'iina-beta'
+  depends_on macos: '>= :el_capitan'
 
   app 'IINA.app'
+  binary "#{appdir}/IINA.app/Contents/MacOS/iina-cli", target: 'iina'
 
-  zap delete: [
-                '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.colliderli.iina.sfl',
-                '~/Library/Application Support/com.colliderli.iina',
-                '~/Library/Caches/com.colliderli.iina',
-                '~/Library/Preferences/com.colliderli.iina.plist',
-                '~/Library/Saved Application State/com.colliderli.iina.savedState',
-              ]
+  zap trash: [
+               '~/Library/Application Scripts/com.colliderli.iina.OpenInIINA',
+               '~/Library/Application Support/com.colliderli.iina',
+               '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.colliderli.iina.sfl*',
+               '~/Library/Application Support/CrashReporter/IINA*.plist',
+               '~/Library/Caches/com.colliderli.iina',
+               '~/Library/Containers/com.colliderli.iina.OpenInIINA',
+               '~/Library/Cookies/com.colliderli.iina.binarycookies',
+               '~/Library/Logs/com.colliderli.iina',
+               '~/Library/Logs/DiagnosticReports/IINA*.crash',
+               '~/Library/Preferences/com.colliderli.iina.plist',
+               '~/Library/Safari/Extensions/Open in IINA*.safariextz',
+               '~/Library/Saved Application State/com.colliderli.iina.savedState',
+             ]
 end

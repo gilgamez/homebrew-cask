@@ -4,10 +4,9 @@ cask 'reeddit' do
 
   # github.com/berbaquero/Reeddit-app was verified as official when first introduced to the cask
   url "https://github.com/berbaquero/Reeddit-app/releases/download/v#{version}/Reeddit.app.zip"
-  appcast 'https://github.com/berbaquero/Reeddit-app/releases.atom',
-          checkpoint: '6c029ef230f82c430494d258b46ce49cd74a73ebb21214ed856b1e007b3fbd7d'
+  appcast 'https://github.com/berbaquero/Reeddit-app/releases.atom'
   name 'Reeddit'
-  homepage 'http://mac.reedditapp.com/'
+  homepage 'https://mac.reedditapp.com/'
 
   app 'Reeddit.app'
 end

@@ -1,20 +1,36 @@
 cask 'p4v' do
-  version '2017.1'
-  sha256 'b015a82a7c0bd492edb972dc542b377a7633bad2148e4b3e2d800f7df0c9297a'
+  version '19.1-1815056'
+  sha256 '50dd06481871afe6718f49b0ed6de8446af4a4f69ae9716775840e0b9251546a'
 
-  url "http://cdist2.perforce.com/perforce/r#{version.sub(%r{\A20(\d\d\.\d+).*}, '\1')}/bin.macosx1011x86_64/P4V.dmg"
+  url "https://cdist2.perforce.com/perforce/r#{version.major_minor}/bin.macosx1013x86_64/P4V.dmg"
+  appcast 'https://cdist2.perforce.com/perforce/'
   name 'Perforce Visual Client'
+  name 'P4Merge'
   name 'P4V'
-  homepage 'https://www.perforce.com/helix-visual-client'
+  homepage 'https://www.perforce.com/products/helix-core-apps/helix-visual-client-p4v'
 
   app 'p4v.app'
   app 'p4admin.app'
   app 'p4merge.app'
   binary 'p4vc'
+  # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
+  p4_wrapper = "#{staged_path}/p4.wrapper.sh"
+  binary p4_wrapper, target: 'p4v'
+  binary p4_wrapper, target: 'p4admin'
+  binary p4_wrapper, target: 'p4merge'
 
-  zap delete: [
-                '~/Library/Preferences/com.perforce.p4v',
-                '~/Library/Preferences/com.perforce.p4v.plist',
-                '~/Library/Saved Application State/com.perforce.p4v.savedState',
-              ]
+  preflight do
+    IO.write p4_wrapper, <<~EOS
+      #!/bin/bash
+      set -euo pipefail
+      COMMAND=$(basename "$0")
+      exec "#{appdir}/${COMMAND}.app/Contents/MacOS/${COMMAND}" "$@" 2> /dev/null
+    EOS
+  end
+
+  zap trash: [
+               '~/Library/Preferences/com.perforce.p4v',
+               '~/Library/Preferences/com.perforce.p4v.plist',
+               '~/Library/Saved Application State/com.perforce.p4v.savedState',
+             ]
 end

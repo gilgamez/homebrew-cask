@@ -1,13 +1,19 @@
 cask 'lepton' do
-  version '1.2.1'
-  sha256 '8b8487425b8a2e4649e860fa223500c7ea7894ae7f2774680eef99cc74c8899f'
+  version '1.8.0'
+  sha256 '26790a8bb0f5f34918250ea9c2ac9fe81ec4488cc88244b3cf4a5e586bd3b032'
 
   # github.com/hackjutsu/Lepton was verified as official when first introduced to the cask
-  url "https://github.com/hackjutsu/Lepton/releases/download/v#{version}/Lepton-#{version}-mac.zip"
-  appcast 'https://github.com/hackjutsu/Lepton/releases.atom',
-          checkpoint: '10612fabc575066085e1da2609be43562e70b1e18db8c1842bc6e80ac18fc817'
+  url "https://github.com/hackjutsu/Lepton/releases/download/v#{version}/Lepton-#{version}.dmg"
+  appcast 'https://github.com/hackjutsu/Lepton/releases.atom'
   name 'Lepton'
-  homepage 'http://hackjutsu.com/Lepton/'
+  homepage 'https://hackjutsu.com/Lepton/'
 
   app 'Lepton.app'
+
+  zap trash: [
+               '~/Library/Application Support/Lepton',
+               '~/Library/Preferences/com.cosmox.lepton.helper.plist',
+               '~/Library/Preferences/com.cosmox.lepton.plist',
+               '~/Library/Saved Application State/com.cosmox.lepton.savedState',
+             ]
 end

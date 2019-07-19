@@ -4,8 +4,7 @@ cask 'todotxt' do
 
   # github.com/mjdescy/TodoTxtMac was verified as official when first introduced to the cask
   url "https://github.com/mjdescy/TodoTxtMac/releases/download/#{version}/TodoTxtMac.app.zip"
-  appcast 'https://github.com/mjdescy/TodoTxtMac/releases.atom',
-          checkpoint: 'b0e4bee1ac3637dfd19abcf039d09752d484ea76796a848ead606a3257ac6e3e'
+  appcast 'https://github.com/mjdescy/TodoTxtMac/releases.atom'
   name 'TodoTxtMac'
   homepage 'https://mjdescy.github.io/TodoTxtMac/'
 

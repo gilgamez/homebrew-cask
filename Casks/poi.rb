@@ -1,15 +1,17 @@
 cask 'poi' do
-  version '7.4.1'
-  sha256 '547d68309ffc5f5d1c67a30b2056ad2e2fa83e7ac5f6352f8f9ab24b3aefd637'
+  version '10.3.0'
+  sha256 'efcf82f302de005fda3dc6f4673925d6a2bcdd0599b1e729e558a2d353a21d95'
 
   # github.com/poooi/poi was verified as official when first introduced to the cask
-  url "https://github.com/poooi/poi/releases/download/v#{version}/poi-#{version}-macos-x64.dmg"
-  appcast 'https://github.com/poooi/poi/releases.atom',
-          checkpoint: 'f774eb586b1627f5ee24238b68202d1571c1d793d96f49f2561371671ffd0b3e'
+  url "https://github.com/poooi/poi/releases/download/v#{version}/poi-#{version}.dmg"
+  appcast 'https://github.com/poooi/poi/releases.atom'
   name 'poi'
   homepage 'https://poi.io/'
 
   app 'poi.app'
 
-  zap delete: '~/Library/Application Support/poi/'
+  zap trash: [
+               '~/Library/Application Support/poi/',
+               '~/Library/Preferences/org.poooi.poi.helper.plist',
+             ]
 end

@@ -1,18 +1,11 @@
 cask 'seashore' do
-  version '0.5.1'
-  sha256 '96463a3642f162a20b160d8df273e9b27a5fdbf9708bee6ebf6a6c8528047765'
+  version '2.4.7'
+  sha256 '3cd1dbfbe0895d9df60a19d00471ecea7cef81c105c8ad57a9bca7bb12c07146'
 
-  url 'https://downloads.sourceforge.net/seashore/Seashore.zip'
-  appcast 'https://sourceforge.net/projects/seashore/rss?path=/seashore%20binaries',
-          checkpoint: 'bcf60985cd8080b2d7d2df038b78e4eff30b60ce2e2d562cf91f2939cf4bb451'
+  url "https://github.com/robaho/seashore/releases/download/v#{version}/seashore-bin-#{version}.dmg"
+  appcast 'https://github.com/robaho/seashore/releases.atom'
   name 'Seashore'
-  homepage 'http://seashore.sourceforge.net/'
-
-  depends_on macos: '<= :el_capitan'
+  homepage 'https://github.com/robaho/seashore'
 
   app 'Seashore.app'
-
-  caveats do
-    discontinued
-  end
 end

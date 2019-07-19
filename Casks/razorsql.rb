@@ -1,12 +1,13 @@
 cask 'razorsql' do
-  version '7.1.0'
-  sha256 'cabc57ed66062e03250b321ac486a4b484f22bb502af80a5fe7c491dd4e9a9d0'
+  version '8.4.1'
+  sha256 '72432c17c76bd8360fbf307cd2c099a8e01e3094d9bf59a63dbff148570bc938'
 
   url "http://downloads.razorsql.com/downloads/#{version.dots_to_underscores}/razorsql#{version.dots_to_underscores}_x64.dmg"
+  appcast 'https://razorsql.com/updates.html'
   name 'RazorSQL'
   homepage 'https://razorsql.com/download_mac.html'
 
   app 'RazorSQL.app'
 
-  zap delete: '~/.razorsql'
+  zap trash: '~/.razorsql'
 end

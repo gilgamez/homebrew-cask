@@ -3,8 +3,7 @@ cask 'soundflower' do
   sha256 '6b5e56d53238cf0f9075886aa40580634fc9d23368239f22eccebfd97c9f8e34'
 
   url "https://github.com/mattingalls/Soundflower/releases/download/#{version}/Soundflower-#{version}.dmg"
-  appcast 'https://github.com/mattingalls/Soundflower/releases.atom',
-          checkpoint: '02b56380ecc6fe4e29bd5a1b1410eee360c2947faf69b114b401e440455353a0'
+  appcast 'https://github.com/mattingalls/Soundflower/releases.atom'
   name 'Soundflower'
   homepage 'https://github.com/mattingalls/Soundflower'
 
@@ -23,6 +22,5 @@ cask 'soundflower' do
                             must_succeed: false,
                           },
             pkgutil:      'com.cycling74.soundflower.*',
-            delete:       '/Applications/Soundflower',
             kext:         'com.Cycling74.driver.Soundflower'
 end

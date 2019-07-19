@@ -1,13 +1,21 @@
 cask 'goofy' do
-  version '2.2.6'
-  sha256 '7408f4d5870d54c13a5557c7a403da39a3c1c71850c5d6b6cca9a840152374f1'
+  version '3.4.3'
+  sha256 '990b4e1ba14e10ed53d049a629f6099e04a758d0532e156ffe71335598ddac63'
 
   # github.com/danielbuechele/goofy was verified as official when first introduced to the cask
-  url "https://github.com/danielbuechele/goofy/releases/download/v#{version}/Goofy.app.zip"
-  appcast 'https://github.com/danielbuechele/goofy/releases.atom',
-          checkpoint: '487c3d4a6f8520f7773e38341fc8fac04a556ce6ae5c3565d096a74ee5b96888'
+  url "https://github.com/danielbuechele/goofy/releases/download/v#{version}/Goofy-#{version}-mac.zip"
+  appcast 'https://github.com/danielbuechele/goofy/releases.atom'
   name 'Goofy'
-  homepage 'http://www.goofyapp.com/'
+  homepage 'https://www.goofyapp.com/'
 
   app 'Goofy.app'
+
+  zap trash: [
+               '~/Library/Application Support/goofy-core',
+               '~/Library/Caches/cc.buechele.Goofy',
+               '~/Library/Caches/cc.buechele.Goofy.ShipIt',
+               '~/Library/Preferences/cc.buechele.Goofy.helper.plist',
+               '~/Library/Preferences/cc.buechele.Goofy.plist',
+               '~/Library/Saved Application State/cc.buechele.Goofy.savedState',
+             ]
 end

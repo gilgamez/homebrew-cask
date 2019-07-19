@@ -1,17 +1,18 @@
 cask 'hyperswitch' do
-  version '0.2.575-dev'
-  sha256 '775449f5d416da651cb78b88d83657ae723ea35edd22a7f4f281e4504ae8dab2'
+  version '0.2.589-dev'
+  sha256 '785375312d164988d0956f72c9343f821f451a5ad232c7f937dcf10352a7dbf7'
 
   url "https://bahoom.com/hyperswitch/#{version}/HyperSwitch.zip"
-  appcast 'https://bahoom.com/hyperswitch/appcast.xml',
-          checkpoint: 'f66e69660743337d404cca0c2e30d590f52ad94b4b6e251ae93cb8d1ab150ab4'
+  appcast 'https://bahoom.com/hyperswitch/appcast.xml'
   name 'HyperSwitch'
   homepage 'https://bahoom.com/hyperswitch/'
 
+  auto_updates true
+
   app 'HyperSwitch.app'
 
-  zap delete: [
-                '~/Library/Preferences/com.bahoom.HyperSwitch.plist',
-                '~/Library/Caches/com.bahoom.HyperSwitch',
-              ]
+  zap trash: [
+               '~/Library/Preferences/com.bahoom.HyperSwitch.plist',
+               '~/Library/Caches/com.bahoom.HyperSwitch',
+             ]
 end

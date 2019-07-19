@@ -1,10 +1,10 @@
 cask 'sonoair' do
-  version '1.0-beta-4.0'
-  sha256 '2f14f818322f5bbf96833880edb5aee46cda5fa74456d7c951e3d36372c09067'
+  version '1.0-beta-7.0'
+  sha256 '6badaa05917b97f4acc8eb09996f5a7748c04b006376511cdecc72ddb7c28760'
 
-  url "http://sonoair.mihosoft.eu/releases/#{version}/SonoAir.zip"
+  url "https://sonoair.mihosoft.eu/releases/#{version}/SonoAir.zip"
   name 'SonoAir'
-  homepage 'http://sonoair.mihosoft.eu/'
+  homepage 'https://sonoair.mihosoft.eu/'
 
   app 'SonoAir.app'
 end

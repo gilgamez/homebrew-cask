@@ -1,8 +1,9 @@
 cask 'fs-uae' do
-  version '2.8.1u3'
-  sha256 '353ac692c21d3b13dd4c37d8d66baf76b4865f893eee4f7a7871a8c1af6a69dd'
+  version '3.0.0'
+  sha256 '606ff910ffc6b50a4675ab4cace5a8a152aed1fd334c98bbac3a725bbace9f52'
 
-  url "https://fs-uae.net/stable/#{version}/fs-uae-suite_#{version}_macosx_x86.tar.gz"
+  url "https://fs-uae.net/stable/#{version}/FS-UAE-Suite_#{version}_macOS_x86-64.dmg"
+  appcast 'https://fs-uae.net/stable/latest-macosx'
   name 'FS-UAE'
   homepage 'https://fs-uae.net/'
 

@@ -1,11 +1,11 @@
 cask 'my-image-garden' do
-  version '3.5.1'
-  sha256 '03c4f7a4ea0e39063f2f51fc51826ea53a60159cd0f0542d37a45367dddc8131'
+  version '3.6.3'
+  sha256 '9942141cc5a46bec2e29ffe87cc679ca5de51f008c4182b48f666b61ad3285bb'
 
   # c-wss.com was verified as official when first introduced to the cask
-  url "http://gdlp01.c-wss.com/gds/3/0200004873/03/mmig-mac-#{version.dots_to_underscores}-ea11.dmg"
+  url "http://gdlp01.c-wss.com/gds/3/0200004873/08/mmig-mac-#{version.dots_to_underscores}-ea11.dmg"
   name 'Canon My Image Garden'
-  homepage 'http://support-asia.canon-asia.com/?personal'
+  homepage 'https://support-asia.canon-asia.com/?personal'
 
   pkg "My Image Garden V#{version.no_dots}.pkg"
 

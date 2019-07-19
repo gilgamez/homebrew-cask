@@ -1,13 +1,22 @@
 cask 'caret' do
-  version '2.0.6'
-  sha256 'db80c98d737e0ff2d07d962388f03c12ba59d1d52cb6ee7f74ce49b03571130e'
+  version '3.4.6'
+  sha256 'a7d17bb7e9c938d8559f1569899a14413dae33bc4a7d4de038bf430447008aea'
 
-  # github.com/careteditor/caret was verified as official when first introduced to the cask
-  url "https://github.com/careteditor/caret/releases/download/#{version}/Caret.dmg"
-  appcast 'https://github.com/careteditor/caret/releases.atom',
-          checkpoint: '134b8dbcbef7340c1699775e26a3e388765960f4b29418e09c3536c1b5d1d363'
+  # github.com/careteditor/issues was verified as official when first introduced to the cask
+  url "https://github.com/careteditor/issues/releases/download/#{version}/Caret.dmg"
+  appcast 'https://github.com/careteditor/issues/releases.atom'
   name 'Caret'
   homepage 'https://caret.io/'
 
   app 'Caret.app'
+
+  zap trash: [
+               '~/Library/Application Support/Caret',
+               '~/Library/Caches/io.caret',
+               '~/Library/Caches/io.caret.ShipIt',
+               '~/Library/Cookies/io.caret.binarycookies',
+               '~/Library/Preferences/io.caret.helper.plist',
+               '~/Library/Preferences/io.caret.plist',
+               '~/Library/Saved Application State/io.caret.savedState',
+             ]
 end

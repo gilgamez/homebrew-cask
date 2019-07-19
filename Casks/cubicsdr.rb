@@ -1,13 +1,12 @@
 cask 'cubicsdr' do
-  version '0.2.0'
-  sha256 '0ca38efcc5355585a1fdcb8f617bcc6bc4031513aa33d7117fe3c426892321bb'
+  version '0.2.5'
+  sha256 '9180e56e84a1d78935fb13ce362e3b8636a96b38d0695748078b43f9f6c3cb2c'
 
   # github.com/cjcliffe/CubicSDR was verified as official when first introduced to the cask
   url "https://github.com/cjcliffe/CubicSDR/releases/download/#{version}/CubicSDR-#{version}-Darwin.dmg"
-  appcast 'https://github.com/cjcliffe/CubicSDR/releases.atom',
-          checkpoint: '6bc2d8513d0a7646888bd7760b10608567f16e030c2c7fa58498a48e1387749f'
+  appcast 'https://github.com/cjcliffe/CubicSDR/releases.atom'
   name 'CubicSDR'
-  homepage 'http://cubicsdr.com/'
+  homepage 'https://cubicsdr.com/'
 
   app 'CubicSDR.app'
 end

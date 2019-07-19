@@ -1,10 +1,11 @@
 cask 'coronasdk' do
-  version '2016.2906'
-  sha256 'e4db1eef4be03671fd18b505a7a9f44291a4beba8d89d734b55b836c83639aa6'
+  version '2018.3326'
+  sha256 'f02dde42feaaec458e7ad170a9474693864148a5a1e01fbf828f4c6b9208a89d'
 
-  url "https://developer.coronalabs.com/sites/default/files/CoronaSDK-#{version}.dmg"
+  url "https://developer.coronalabs.com/sites/default/files/Corona-#{version}.dmg"
+  appcast 'https://coronalabs.com/'
   name 'Corona SDK'
-  homepage 'https://coronalabs.com/corona-sdk/'
+  homepage 'https://coronalabs.com/'
 
-  suite 'CoronaSDK'
+  suite 'Corona'
 end

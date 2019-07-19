@@ -1,23 +1,20 @@
 cask 'astropad' do
-  version '2.2.2'
-  sha256 '551300493eda464cebf645bf3b98c6f0919af0c2ac2db5ce7782ee89bb9f5032'
+  version '3.1'
+  sha256 '4082c09dd4aa440a2b8bd25104d98d3f431fbca2fc4f139d3e390632f4903f22'
 
-  url "http://astropad.com/downloads/Astropad-#{version}.zip"
-  appcast 'http://astropad.com/downloads/sparkle.xml',
-          checkpoint: '00b61473aed4a9fe58fdf979281f27b9f3e0066e106a19b98dbdfb898b297655'
+  url "https://astropad.com/downloads/Astropad-#{version}.zip"
+  appcast 'https://astropad.com/downloads/sparkle.xml'
   name 'Astropad'
-  homepage 'http://astropad.com/'
-
-  depends_on macos: '>= :mavericks'
+  homepage 'https://astropad.com/'
 
   app 'Astropad.app'
 
   uninstall quit: 'com.astro-hq.AstropadMac'
 
-  zap delete: [
-                '~/Library/Caches/Astropad',
-                '~/Library/Caches/com.astro-hq.AstropadMac',
-                '~/Library/Preferences/com.astro-hq.AstropadMac.plist',
-                '~/Library/Saved Application State/com.astro-hq.AstropadMac.savedState',
-              ]
+  zap trash: [
+               '~/Library/Caches/Astropad',
+               '~/Library/Caches/com.astro-hq.AstropadMac',
+               '~/Library/Preferences/com.astro-hq.AstropadMac.plist',
+               '~/Library/Saved Application State/com.astro-hq.AstropadMac.savedState',
+             ]
 end

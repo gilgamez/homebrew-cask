@@ -1,8 +1,9 @@
 cask 'molotov' do
-  version '1.3.1'
-  sha256 'ab2cf7e46e7e0b129ebcf99542de1bcf97a3443d610d712970054a9db3ceecaa'
+  version '4.0.0'
+  sha256 '7de54b9810573e9145531fe0f4547c7a713305f0f9ac02493ecd117365412275'
 
   url "https://desktop-auto-upgrade.molotov.tv/mac/Molotov-v#{version}.dmg"
+  appcast 'https://desktop-auto-upgrade.molotov.tv/mac/manifest.json'
   name 'Molotov'
   homepage 'https://www.molotov.tv/'
 

@@ -1,20 +1,23 @@
 cask 'mousepose' do
-  version '3.2.7'
-  sha256 '05a3c5175206e971b386a75cd28e51873fdff6c47e24c5673a8116af127d336c'
+  version '4.0,10187'
+  sha256 '3030c80001f73f8b1cdd466783dd6f99238f6c2fcbf935fd88448d1ea391ffa6'
 
-  url "https://cdn.boinx.com/software/mousepose/Boinx_Mousepose_#{version}-10878.app.zip"
+  url "https://cdn.boinx.com/software/mousepose/Boinx_Mousepose_#{version.before_comma}-#{version.after_comma}.app.zip"
+  appcast 'https://sparkle.boinx.com/appcast.lasso?appName=mousepose'
   name 'Mouseposé'
-  homepage 'https://www.boinx.com/mousepose/overview/'
+  homepage 'https://boinx.com/mousepose/overview/'
+
+  depends_on macos: '>= :high_sierra'
 
   # Renamed for consistency: app name is different in the Finder and in a shell.
-  # Original discussion: https://github.com/caskroom/homebrew-cask/pull/15708
+  # Original discussion: https://github.com/Homebrew/homebrew-cask/pull/15708
   app 'Mousepose.app', target: "Mousepose\314\201.app"
 
-  zap delete: [
-                '~/Library/Application Support/com.boinx.Mousepose',
-                '~/Library/Caches/com.boinx.Mousepose/',
-                '~/Library/Cookies/com.boinx.Mousepose.binarycookies',
-                '~/Library/Preferences/com.boinx.Mousepose.plist',
-                '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.boinx.mousepose.sfl',
-              ]
+  zap trash: [
+               '~/Library/Application Support/com.boinx.Mousepose',
+               '~/Library/Caches/com.boinx.Mousepose/',
+               '~/Library/Cookies/com.boinx.Mousepose.binarycookies',
+               '~/Library/Preferences/com.boinx.Mousepose.plist',
+               '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.boinx.mousepose.sfl*',
+             ]
 end

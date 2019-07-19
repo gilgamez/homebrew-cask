@@ -1,12 +1,12 @@
 cask 'squeak' do
-  version '5.1-16548'
-  sha256 'c78258c6cc0cb9e3a433230518b065fcf10b5710da7821ef335cf7d8b2fe2f8a'
+  version '5.2-18228'
+  sha256 '7bd3de9beedcce792db32f1253f9243a299909368bad6f1ac21dd128f11b289d'
 
-  url "http://files.squeak.org/#{version.major_minor}/Squeak#{version}-32bit/Squeak#{version}-32bit-All-in-One.zip"
+  url "https://files.squeak.org/#{version.major_minor}/Squeak#{version}-64bit/Squeak#{version}-64bit-All-in-One.zip"
   name 'Squeak'
-  homepage 'http://squeak.org/'
+  homepage 'https://squeak.org/'
 
-  app "Squeak#{version}-32bit-All-in-One/Squeak#{version}-32bit-All-in-One.app"
+  app "Squeak#{version}-64bit-All-in-One.app"
 
-  zap delete: '~/Library/Saved Application State/org.squeak.Squeak#{version.major_minor}.32.All-in-One.savedState'
+  zap trash: "~/Library/Saved Application State/org.squeak.Squeak#{version.major_minor}.64.All-in-One.savedState"
 end

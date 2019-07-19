@@ -1,10 +1,10 @@
 cask 'red' do
-  version '0.6.2'
-  sha256 'dc58bd3a264fbcc1aa3c54ea351ad0e2c14b6a2ecd4a299077d221b9958c4f90'
+  version '0.6.4'
+  sha256 '43bab7be96978b7740879eefd9131dbd51280ed319e96d83f87b2df05ea938c7'
 
-  url "http://static.red-lang.org/dl/mac/red-#{version.no_dots}"
+  url "https://static.red-lang.org/dl/mac/red-#{version.no_dots}"
   name 'Red Programming Language'
-  homepage 'http://www.red-lang.org/'
+  homepage 'https://www.red-lang.org/'
 
   container type: :naked
 

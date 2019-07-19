@@ -1,11 +1,23 @@
 cask 'mqttfx' do
-  version '1.3.1'
-  sha256 'c9d4d1c862e5aab194338f3508f166d20a9116c9ba2be70e1e4341bad6c96070'
+  version '1.7.1'
+  sha256 '544b6ac0afefb80b5a56c2a6f2411f999862fb8f0f20502c912f28a9d1aa3b4a'
 
   # jensd.de/apps/mqttfx was verified as official when first introduced to the cask
-  url "http://www.jensd.de/apps/mqttfx/#{version}/mqttfx-#{version}-macos.dmg"
+  url "https://www.jensd.de/apps/mqttfx/#{version}/mqttfx-#{version}-macos.dmg"
+  appcast 'https://www.jensd.de/apps/mqttfx/appcast.xml'
   name 'MQTT.fx'
-  homepage 'http://mqttfx.jfx4ee.org/'
+  homepage 'http://www.mqttfx.org/'
 
-  app 'MQTT.fx.app'
+  installer script: {
+                      executable: 'MQTT.fx Installer.app/Contents/MacOS/JavaApplicationStub',
+                      args:       ['-q'],
+                      sudo:       true,
+                    }
+
+  uninstall delete: '/Applications/MQTT.fx.app'
+
+  zap trash: [
+               '~/Library/Application Support/MQTT-FX',
+               '~/Library/Application Support/MQTT.fx',
+             ]
 end

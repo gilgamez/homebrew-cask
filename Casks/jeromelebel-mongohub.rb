@@ -4,8 +4,7 @@ cask 'jeromelebel-mongohub' do
 
   # mongohub.s3.amazonaws.com was verified as official when first introduced to the cask
   url 'https://mongohub.s3.amazonaws.com/MongoHub.zip'
-  appcast 'https://github.com/jeromelebel/MongoHub-Mac/releases.atom',
-          checkpoint: '6f591d790da4f6d9683753e2966899fe5efebd5c9b11d0ee91f1dd66ff2c4884'
+  appcast 'https://github.com/jeromelebel/MongoHub-Mac/releases.atom'
   name 'MongoHub'
   homepage 'https://github.com/jeromelebel/MongoHub-Mac'
 

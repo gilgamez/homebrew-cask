@@ -1,24 +1,21 @@
 cask 'welly' do
-  if MacOS.version <= :leopard
-    version '2.4'
-    sha256 '8cf6ca119184112e774103f6df1e279826c10d64fe4b303167dc68ffd28f6b8b'
-    url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/welly/Welly.v#{version}.zip"
-  elsif MacOS.version <= :snow_leopard
-    version '2.64'
-    sha256 '9403a92d74f5e7e02974a0fe8641ab1e320523948a67add596c964b2c4c13cae'
-    url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/welly/Welly.v#{version}.zip"
-  else
-    version '2.7'
-    sha256 'cb24a26432d8927b1159a1865602c3f30b5190f628167c954e4d6cc723cfcb0f'
-    url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/welly/Welly.v#{version}.fix.zip"
-  end
+  version '3.1.1.1'
+  sha256 'f17aa74d8668d02ff7c6eee81ae7e0c06d76a51d4aa50624ffe757c95f498ecf'
 
+  url "https://github.com/clyang/welly/releases/download/#{version}/Welly.v#{version}.zip"
+  appcast 'https://github.com/clyang/welly/releases.atom'
   name 'Welly'
-  homepage 'https://code.google.com/archive/p/welly'
+  homepage 'https://github.com/clyang/welly'
+
+  auto_updates true
 
   app 'Welly.app'
 
-  caveats do
-    discontinued
-  end
+  zap trash: [
+               '~/Library/Application Support/Welly',
+               '~/Library/Caches/Welly',
+               '~/Library/Caches/org.net9.Welly',
+               '~/Library/Cookies/org.net9.Welly.binarycookies',
+               '~/Library/Preferences/org.net9.Welly.plist',
+             ]
 end

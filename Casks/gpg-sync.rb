@@ -1,14 +1,13 @@
 cask 'gpg-sync' do
-  version '0.1.1'
-  sha256 '56b3d0073baf521fd6dc8f2fc09d63edf75d16b37a46b4437275dc3865484be3'
+  version '0.3.3'
+  sha256 '9c6c865f0482a92f51873e440eede33bbe6ec72596cbf490ba99b6cf4511a989'
 
-  url "https://github.com/firstlookmedia/gpgsync/releases/download/v#{version}/GPGSync.pkg"
-  appcast 'https://github.com/firstlookmedia/gpgsync/releases.atom',
-          checkpoint: 'e386ff63730a46c0dad3c6a24a4509bc83babcb0e389e2175ea9e1e633054941'
+  url "https://github.com/firstlookmedia/gpgsync/releases/download/v#{version}/GPGSync-#{version}.pkg"
+  appcast 'https://github.com/firstlookmedia/gpgsync/releases.atom'
   name 'GPG Sync'
   homepage 'https://github.com/firstlookmedia/gpgsync/'
 
-  pkg 'GPGSync.pkg'
+  pkg "GPGSync-#{version}.pkg"
 
   uninstall pkgutil:   'org.firstlook.gpgsync',
             launchctl: 'org.firstlook.gpgsync'

@@ -1,12 +1,11 @@
 cask 'eclipse-modeling' do
-  version '4.6.3,neon:3'
-  sha256 '2d1bdc6c1c776697a64c7451bcc11021fc056673230a9a7ca9078f4ef8044d95'
+  version '4.12.0,2019-06:R'
+  sha256 '8b0c958a5b2e7d4e388341ca0dc8b0fbd72469a84f052d4a0f789aa0bc33b4ff'
 
-  url "https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/#{version.after_comma.before_colon}/#{version.after_colon}/eclipse-modeling-#{version.after_comma.before_colon}-#{version.after_colon}-macosx-cocoa-x86_64.tar.gz&r=1"
+  url "https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/#{version.after_comma.before_colon}/#{version.after_colon}/eclipse-modeling-#{version.after_comma.before_colon}-#{version.after_colon}-macosx-cocoa-x86_64.dmg&r=1"
   name 'Eclipse Modeling Tools'
   homepage 'https://eclipse.org/'
 
-  depends_on macos: '>= :leopard'
-
-  app 'Eclipse.app'
+  # Renamed to avoid conflict with other Eclipse.
+  app 'Eclipse.app', target: 'Eclipse Modeling.app'
 end

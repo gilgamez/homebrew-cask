@@ -1,10 +1,12 @@
 cask 'jalbum' do
-  version '13'
-  sha256 '1b6466ad6b2272addeaa23b70ac3714b4df3357d0c168ea58ff6060c8cf33e4c'
+  version '18.3.1'
+  sha256 '0bdb2e6c64d7996cd15ef58687c109b5627f6c2b2a3b18910c4d9215df51f5b1'
 
-  url "http://download.jalbum.net/download/#{version}/MacOSX/jAlbum.dmg"
+  url "https://download.jalbum.net/download/#{version.major_minor}/MacOSX/jAlbum.dmg"
+  appcast 'https://jalbum.net/en/software/download/previous',
+          configuration: version.major_minor
   name 'jAlbum'
-  homepage 'http://jalbum.net/'
+  homepage 'https://jalbum.net/'
 
   app 'jAlbum.app'
 end

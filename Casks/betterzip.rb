@@ -1,14 +1,27 @@
 cask 'betterzip' do
-  version '3.2.1'
-  sha256 'd3d7536fef9958792b05f712c03e35205460d8d86767fd706806fbc92172b074'
+  version '4.2.4'
+  sha256 '62c254f0e0c6632150ef50cfe928dfb444ab6e764f5ae0809d71ce5b4d80bf66'
 
   url "https://macitbetter.com/dl/BetterZip-#{version}.zip"
-  appcast "https://macitbetter.com/BetterZip#{version.major}.rss",
-          checkpoint: '9749780b36e704e5865f8671406c14a937644daf0efc5023ff05e49b95f39c48'
+  appcast "https://macitbetter.com/BetterZip#{version.major}.rss"
   name 'BetterZip'
   homepage 'https://macitbetter.com/'
 
+  auto_updates true
+  depends_on macos: '>= :yosemite'
+
   app 'BetterZip.app'
 
-  zap delete: '~/Library/Preferences/com.macitbetter.betterzip.plist'
+  zap trash: [
+               '~/Library/Application Scripts/com.macitbetter.betterzip.findersyncextension',
+               '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.macitbetter.betterzip.sfl*',
+               '~/Library/Application Support/com.macitbetter.betterzip',
+               '~/Library/Caches/com.apple.helpd/Generated/com.macitbetter.betterzip.help*',
+               '~/Library/Caches/com.macitbetter.betterzip',
+               '~/Library/Containers/com.macitbetter.betterzip.findersyncextension',
+               '~/Library/Group Containers/79RR9LPM2N.group.com.macitbetter.betterzip',
+               '~/Library/Group Containers/79RR9LPM2N.group.com.macitbetter.betterzip-setapp',
+               '~/Library/Preferences/com.macitbetter.betterzip.plist',
+               '~/Library/Saved Application State/com.macitbetter.betterzip.savedState',
+             ]
 end

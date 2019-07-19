@@ -4,19 +4,18 @@ cask 'linear' do
 
   # github.com/mikaa123/linear was verified as official when first introduced to the cask
   url "https://github.com/mikaa123/linear/releases/download/#{version}/linear.zip"
-  appcast 'https://github.com/mikaa123/linear/releases.atom',
-          checkpoint: '5dff0089adc2d1dd2a8c8617f4b87587ed306c4e3fd8beb87549e37bbc51305e'
+  appcast 'https://github.com/mikaa123/linear/releases.atom'
   name 'Linear'
-  homepage 'http://linear.theuxshop.com/'
+  homepage 'https://linear.theuxshop.com/'
 
   app 'linear.app'
 
-  zap delete: [
-                '~/.linear',
-                '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.electron.linear.sfl',
-                '~/Library/Application Support/linear',
-                '~/Library/Caches/linear',
-                '~/Library/Preferences/com.electron.linear.plist',
-                '~/Library/Saved Application State/com.electron.linear.savedState',
-              ]
+  zap trash: [
+               '~/.linear',
+               '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.electron.linear.sfl*',
+               '~/Library/Application Support/linear',
+               '~/Library/Caches/linear',
+               '~/Library/Preferences/com.electron.linear.plist',
+               '~/Library/Saved Application State/com.electron.linear.savedState',
+             ]
 end

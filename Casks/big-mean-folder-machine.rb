@@ -1,12 +1,11 @@
 cask 'big-mean-folder-machine' do
-  version '2.35'
-  sha256 '64ca7971a5e003ae992cdef66361a8da832a8bcd007320cc0d0a0a4ce18fe1eb'
+  version '2.39'
+  sha256 '9625293528edf4b32f62bbbd21dac956acf0a1902523e63153f6be01063f75fc'
 
-  url 'http://www.publicspace.net/download/BMFM.dmg'
-  appcast "http://www.publicspace.net/app/bmfm#{version.major}.xml",
-          checkpoint: 'efccbe67240eb6c1c6d3911acd4828411048860dc7e900af0d7203a53d0e2573'
+  url 'https://www.publicspace.net/download/BMFM.dmg'
+  appcast "https://www.publicspace.net/app/bmfm#{version.major}.xml"
   name 'Big Mean Folder Machine'
-  homepage 'http://www.publicspace.net/BigMeanFolderMachine/'
+  homepage 'https://www.publicspace.net/BigMeanFolderMachine/'
 
   app "Big Mean Folder Machine #{version.major}.app"
 end

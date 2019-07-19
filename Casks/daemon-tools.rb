@@ -1,13 +1,12 @@
 cask 'daemon-tools' do
-  version '5.1.274'
-  sha256 '71f62a28619931dae9e17b409a94a000c636bc9ab2166e2f3439b50d6acfd164'
+  version '7.1.541'
+  sha256 'dfbf38aa0c2147d16302555d17d0c6a61f9b069117f7cad4f6dee7fe3a556f60'
 
   # web-search-home.com was verified as official when first introduced to the cask
   url 'http://web-search-home.com/download/dtLiteMac'
-  appcast 'http://resources.web-search-home.com/xml/DAEMONToolsLite-appcast.xml',
-          checkpoint: '67a5a36846d83bd5f2ec3434f045048ee8233cdffe36ddc1d53c62f179f9c6de'
+  appcast 'http://resources.web-search-home.com/xml/DAEMONToolsLite-appcast.xml'
   name 'DAEMON Tools'
-  homepage 'https://www.daemon-tools.cc/home'
+  homepage 'https://www.daemon-tools.cc/'
 
   app 'DAEMON Tools.app'
 end

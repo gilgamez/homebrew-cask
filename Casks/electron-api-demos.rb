@@ -1,18 +1,20 @@
 cask 'electron-api-demos' do
-  version '1.2.0'
-  sha256 '8786676a84ccb26671d08eb2c887ee777b616f7f966ff7125a43beada1ea4437'
+  version '2.0.2'
+  sha256 '274e1f3c2a90ab884b117af84988c1aea9931d37fe8169fb6aeecab8e5b78464'
 
   url "https://github.com/electron/electron-api-demos/releases/download/v#{version}/electron-api-demos-mac.zip"
-  appcast 'https://github.com/electron/electron-api-demos/releases.atom',
-          checkpoint: '946f0f43ee3417ad0978e0e16ef43e3ffdcd3d6a698437632f6ebc89aec2326d'
+  appcast 'https://github.com/electron/electron-api-demos/releases.atom'
   name 'Electron API Demos'
   homepage 'https://github.com/electron/electron-api-demos'
 
   app 'Electron API Demos.app'
 
-  zap delete: [
-                '~/Library/Application Support/Electron API Demos',
-                '~/Library/Caches/com.electron.electron-api-demos',
-                '~/Library/Saved Application State/com.electron.electron-api-demos.savedState',
-              ]
+  zap trash: [
+               '~/Library/Application Support/Electron API Demos',
+               '~/Library/Caches/com.electron.electron-api-demos',
+               '~/Library/Caches/com.electron.electron-api-demos.ShipIt',
+               '~/Library/Preferences/com.electron.electron-api-demos.helper.plist',
+               '~/Library/Preferences/com.electron.electron-api-demos.plist',
+               '~/Library/Saved Application State/com.electron.electron-api-demos.savedState',
+             ]
 end

@@ -4,8 +4,7 @@ cask 'difffork' do
 
   # dotfork.s3.amazonaws.com was verified as official when first introduced to the cask
   url 'https://dotfork.s3.amazonaws.com/DiffFork.app.zip'
-  appcast 'http://www.dotfork.com/difffork/appcast.xml',
-          checkpoint: 'e2169213947077fcec5f5a3cb756854df8ba53292f45aa7f06637d041372d79c'
+  appcast 'http://www.dotfork.com/difffork/appcast.xml'
   name 'DiffFork'
   homepage 'http://www.dotfork.com/difffork/'
 

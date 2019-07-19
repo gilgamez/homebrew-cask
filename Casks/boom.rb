@@ -1,13 +1,12 @@
 cask 'boom' do
-  version '1.5.2,1484655577'
-  sha256 '50fe819fc6d310a92c45d15785ffa2d5a9d6e45abd01a0b54a86b407e0f14cf5'
+  version '1.6.8,1553238536'
+  sha256 'cc683afd2518210181d4994c9be0ada0e4d1dded0c4865dcfb3fdafea8849d82'
 
   # devmate.com/com.globaldelight.Boom2 was verified as official when first introduced to the cask
   url "https://dl.devmate.com/com.globaldelight.Boom2/#{version.before_comma}/#{version.after_comma}/Boom2-#{version.before_comma}.dmg"
-  appcast 'https://updates.devmate.com/com.globaldelight.Boom2.xml',
-          checkpoint: '03ee099fd30f66e6d8f7fef96f3f0690d80557ab8cc536d7ca7ce089d7bbbba8'
+  appcast 'https://updates.devmate.com/com.globaldelight.Boom2.xml'
   name 'Boom'
-  homepage 'http://www.globaldelight.com/boom'
+  homepage 'https://www.globaldelight.com/boom'
 
   depends_on macos: '>= :yosemite'
 
@@ -20,11 +19,11 @@ cask 'boom' do
                        ],
             signal:    ['TERM', 'com.globaldelight.Boom2']
 
-  zap delete: [
-                '~/Library/Application Support/com.globaldelight.Boom2',
-                '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.globaldelight.boom2.sfl',
-                '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.globaldelight.boom2daemon.sfl',
-                '~/Library/Preferences/com.globaldelight.Boom2.plist',
-                '~/Library/Preferences/com.globaldelight.Boom2Daemon.plist',
-              ]
+  zap trash: [
+               '~/Library/Application Support/com.globaldelight.Boom2',
+               '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.globaldelight.boom2.sfl*',
+               '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.globaldelight.boom2daemon.sfl*',
+               '~/Library/Preferences/com.globaldelight.Boom2.plist',
+               '~/Library/Preferences/com.globaldelight.Boom2Daemon.plist',
+             ]
 end

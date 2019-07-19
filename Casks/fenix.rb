@@ -4,10 +4,11 @@ cask 'fenix' do
 
   # github.com/coreybutler/fenix was verified as official when first introduced to the cask
   url "https://github.com/coreybutler/fenix/releases/download/v#{version}/fenix-osx-#{version}.zip"
-  appcast 'https://github.com/coreybutler/fenix/releases.atom',
-          checkpoint: '57b8ed989956042b16b76844cb4c294c8b31e0aba29cd349ebb69d91588c2daa'
+  appcast 'https://github.com/coreybutler/fenix/releases.atom'
   name 'Fenix'
   homepage 'https://fenixwebserver.com/'
+
+  container nested: "Fenix_#{version}.dmg"
 
   app 'Fenix.app'
 end

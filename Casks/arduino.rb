@@ -1,15 +1,19 @@
 cask 'arduino' do
-  version '1.8.1'
-  sha256 '78e72a43e6228d8e9e6d0998fbfc16b1718fbfc0c76baf0ab57e3a78eef71628'
+  version '1.8.9'
+  sha256 '7868dd8f6d350956b4d0c7e3d443f717209244a2dc3f374da115d5252a45bf56'
 
   url "https://downloads.arduino.cc/arduino-#{version}-macosx.zip"
-  appcast 'https://www.arduino.cc/en/Main/ReleaseNotes',
-          checkpoint: 'd50e794a44510130bfd4e08857a61bcbb338998aac7e564aa41c08ce7a44981e'
+  appcast 'https://www.arduino.cc/en/Main/ReleaseNotes'
   name 'Arduino'
   homepage 'https://www.arduino.cc/'
 
   app 'Arduino.app'
   binary "#{appdir}/Arduino.app/Contents/Java/arduino-builder"
+
+  zap trash: [
+               '~/Library/Arduino15',
+               '~/Library/Preferences/cc.arduino.Arduino.plist',
+             ]
 
   caveats do
     depends_on_java

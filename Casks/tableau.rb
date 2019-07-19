@@ -1,10 +1,12 @@
 cask 'tableau' do
-  version '10.2.0'
-  sha256 'ef8aa2045b5b1ca979daf6cefab79f34fa35d3bc07931e9b5699cd6a72f10986'
+  version '2019.2.1'
+  sha256 '184dc0996a0b0c8811740b09fd53ba2d14fbb4f4d9db76555cb74ae1e11d2deb'
 
   url "https://downloads.tableau.com/tssoftware/TableauDesktop-#{version.dots_to_hyphens}.dmg"
+  appcast 'https://macupdater.net/cgi-bin/check_urls/check_url_redirect.cgi?url=https://www.tableau.com/downloads/desktop/mac',
+          configuration: version.dots_to_hyphens
   name 'Tableau Desktop'
-  homepage 'https://public.tableau.com/s/'
+  homepage 'https://www.tableau.com/products/desktop/download'
 
   depends_on macos: '>= :yosemite'
 
@@ -12,11 +14,12 @@ cask 'tableau' do
 
   uninstall pkgutil: [
                        'com.amazon.redshiftodbc',
+                       'simba.sparkodbc',
                        'com.simba.sparkodbc',
                        'com.simba.sqlserverodbc',
                        'com.tableausoftware.Desktop.app',
                        'com.tableausoftware.DesktopShortcut',
-                       'com.tableausoftware.FLEXNet.11.14.0',
+                       'com.tableausoftware.FLEXNet.11.*',
                        'com.tableausoftware.mysql',
                        'com.tableausoftware.oracle',
                        'com.tableausoftware.postgresql',

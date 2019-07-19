@@ -1,90 +1,101 @@
 cask 'thunderbird' do
-  version '45.8.0'
+  version '60.8.0'
+
+  language 'cs' do
+    sha256 'cd3cb370718822db5115276e7e14e80786ddf590f39825e33a13843b9e058fb8'
+    'cs'
+  end
 
   language 'de' do
-    sha256 '1ea4426cc5a35ef17fc405eba29264b0d6cc5a286a96b69b4a684ffdc2872047'
+    sha256 '636aab773c6991eebccd698aa7c7246e261eb827dd9379deda38bccd42814eec'
     'de'
   end
 
   language 'en-GB' do
-    sha256 'e9530d72adafbf5c5d1b7dd6355533d295e6d8ece2495a103bf90582f8aca980'
+    sha256 'cb93a157591093bfef9098d94a8ef48f92ee70cd8c41039eefba4f00f0629b9f'
     'en-GB'
   end
 
   language 'en', default: true do
-    sha256 'cda77d6bf33ce5dc32c1e704f726f7840016080dcdd04939de781854f87aebbd'
+    sha256 '2b58d6e8fe73df5b95110c56df72dd8c20961254cbb76ace42bb126557fa3bdd'
     'en-US'
   end
 
   language 'fr' do
-    sha256 '61c1d840c1520220bff4c711866a954213c88e993ca542bde9981c49c2d5dac1'
+    sha256 '3321ad9fca6a91cb4729461122256ca2c6f568ccb672c20330744c5b68914f3c'
     'fr'
   end
 
   language 'gl' do
-    sha256 '6b15d86f7bca7e431395bce387d3c91007f467d443b78de474c2a472c43b51f4'
+    sha256 '85f1b393d1cb11b43db3b8870e99ef23800cf3ee23eb875dcb853b7dff605c30'
     'gl'
   end
 
   language 'it' do
-    sha256 '1a8a1497c84aa24cf595c9030cc692d6906a8a7ec41fcda62da04debdf4867fb'
+    sha256 '225eaa5a1de88a4547b0f9490ff3fce807fe495cbb43cc0171def453ea392f38'
     'it'
   end
 
   language 'ja' do
-    sha256 'b767657782673907c7e8a2f6604024acadbd3b2dc54f46eb38635027039201e6'
+    sha256 '452f67869404a2fca0d59f0c7b61422ca670983f4383977d4da829bc6af7a499'
     'ja-JP-mac'
   end
 
   language 'nl' do
-    sha256 '21231da420a04831c59bca682c30b00b22bd4bf7fbc00ddde1b66d8e780c6c65'
+    sha256 'df81efd84c91042fcb87cf3f226d0a359e0f0f097708467d469e03748305706f'
     'nl'
   end
 
   language 'pl' do
-    sha256 '1459d9125bfd4cf7f2433f83c352a7a540c3a32e5c7836ba8cd77d7083f98892'
+    sha256 '2b909a2adada94e0c2a38d800846c681ede40108786851c08b14d2f716335bc7'
     'pl'
   end
 
   language 'pt' do
-    sha256 '1af47a513f7f2f14c9c948c033e770edfd8e715843b2d26c7271550957b78e98'
+    sha256 '813cdc608a7fda5913918daa66b4d2686d77931674c3be1f28fedf7e0e275ad4'
+    'pt-PT'
+  end
+
+  language 'pt-BR' do
+    sha256 'b2eef73878ff8f8c72546b7443e2028adb2bb70108fa14ef6e466d146103e49f'
     'pt-BR'
   end
 
   language 'ru' do
-    sha256 '679f3e100e23fd4a0e4e07068b8832c4bfb75850ff3e15c1f2e7edf92df50b09'
+    sha256 'f71d705226257c8317f92fdbfcf7a8756775b3f28935072cbeffc3411b8f63b1'
     'ru'
   end
 
   language 'uk' do
-    sha256 'eff3ed2395e18925bf08bddf53f69c30c86316ed288a8d767255ea8c30853290'
+    sha256 '171bb3b834a57fa266532af071e43449e2b71c09e908ad296711bf04c854a787'
     'uk'
   end
 
   language 'zh-TW' do
-    sha256 '60b21d4d7200fbc9820dff1d996ab2baccb90050383b72ac3d796e96c03246c5'
+    sha256 '4508a59cfe7e183a70d352936a17c6b44ca09d37e5ef9fbad4a0eccab6b09dc9'
     'zh-TW'
   end
 
   language 'zh' do
-    sha256 '0bbe05d97d169796804ee046ba92c3df3871c8982416a3a0cef5c2398701d008'
+    sha256 'b2e7a78832d991f7e6d99d91cc85401896590714c6bdd365112ef62ce1b2b03d'
     'zh-CN'
   end
 
   url "https://ftp.mozilla.org/pub/thunderbird/releases/#{version}/mac/#{language}/Thunderbird%20#{version}.dmg"
-  appcast "https://aus5.mozilla.org/update/3/Thunderbird/#{version}/0/Darwin_x86_64-gcc3-u-i386-x86_64/en-US/release/Darwin%2015.3.0/default/default/update.xml?force=1",
-          checkpoint: 'f62345f0c37745e26d53719440b4ca34900628912fb41a53346969f64d9549e9'
+  appcast 'https://www.thunderbird.net/en-US/thunderbird/releases/'
   name 'Mozilla Thunderbird'
   homepage 'https://www.mozilla.org/thunderbird/'
 
   auto_updates true
+  conflicts_with cask: 'thunderbird-beta'
 
   app 'Thunderbird.app'
 
-  zap delete: [
-                '~/Library/Thunderbird',
-                '~/Library/Caches/Thunderbird',
-                '~/Library/Saved Application State/org.mozilla.thunderbird.savedState',
-                '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/org.mozilla.thunderbird.sfl',
-              ]
+  zap trash: [
+               '~/Library/Thunderbird',
+               '~/Library/Caches/Thunderbird',
+               '~/Library/Saved Application State/org.mozilla.thunderbird.savedState',
+               '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/org.mozilla.thunderbird.sfl*',
+               '~/Library/Preferences/org.mozilla.thunderbird.plist',
+             ]
 end

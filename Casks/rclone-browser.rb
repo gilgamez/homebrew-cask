@@ -4,8 +4,7 @@ cask 'rclone-browser' do
 
   # github.com/mmozeiko/RcloneBrowser was verified as official when first introduced to the cask
   url "https://github.com/mmozeiko/RcloneBrowser/releases/download/#{version.before_comma}/rclone-browser-#{version.before_comma}-#{version.after_comma}-macOS.zip"
-  appcast 'https://github.com/mmozeiko/RcloneBrowser/releases.atom',
-          checkpoint: '6c70233b86022aaa670af000d633ff4b2038037599511bfdfb1809c6ab863ff0'
+  appcast 'https://github.com/mmozeiko/RcloneBrowser/releases.atom'
   name 'Rclone Browser'
   homepage 'https://mmozeiko.github.io/RcloneBrowser/'
 
@@ -13,8 +12,8 @@ cask 'rclone-browser' do
 
   app "rclone-browser-#{version.before_comma}-#{version.after_comma}-macOS/Rclone Browser.app"
 
-  zap delete: [
-                '~/Library/Preferences/Rclone Browser.plist',
-                '~/Library/Preferences/com.rclone-browser.rclone-browser.plist',
-              ]
+  zap trash: [
+               '~/Library/Preferences/Rclone Browser.plist',
+               '~/Library/Preferences/com.rclone-browser.rclone-browser.plist',
+             ]
 end

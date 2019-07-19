@@ -1,19 +1,19 @@
 cask 'paintbrush' do
-  version '2.1.2'
-  sha256 '3bf18908a191b65efec2a15af0c5f5e95f76e1ec00d71063e235a146b9f6c417'
+  version '2.4.2'
+  sha256 'ee1e3175870f9c4271706e646d9a5312d6e098c22dbdc40d32525f9915706eec'
 
+  # downloads.sourceforge.net/paintbrush was verified as official when first introduced to the cask
   url "https://downloads.sourceforge.net/paintbrush/Paintbrush%202.x/Paintbrush%20#{version}/Paintbrush-#{version}.zip"
-  appcast "http://paintbrush.sourceforge.net/updates#{version.major}x.xml",
-          checkpoint: 'e1e7f7afa9b02245fae55442f3feedddddf1a8d43730abd68425529b83fe37bd'
+  appcast "https://paintbrush.sourceforge.io/updates#{version.major}x.xml"
   name 'Paintbrush'
-  homepage 'http://paintbrush.sourceforge.net/'
+  homepage 'https://paintbrush.sourceforge.io/'
 
   app 'Paintbrush.app'
 
-  zap delete: [
-                '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.soggywaffles.paintbrush.sfl',
-                '~/Library/Preferences/com.soggywaffles.Paintbrush.LSSharedFileList.plist',
-                '~/Library/Preferences/com.soggywaffles.Paintbrush.plist',
-                '~/Library/Caches/com.soggywaffles.Paintbrush',
-              ]
+  zap trash: [
+               '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.soggywaffles.paintbrush.sfl*',
+               '~/Library/Preferences/com.soggywaffles.Paintbrush.LSSharedFileList.plist',
+               '~/Library/Preferences/com.soggywaffles.Paintbrush.plist',
+               '~/Library/Caches/com.soggywaffles.Paintbrush',
+             ]
 end

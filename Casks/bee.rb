@@ -1,13 +1,22 @@
 cask 'bee' do
-  version '2.4.9'
-  sha256 'd79a8d78b224ccafec11a6b5e0f12cb79b98a05bb4f2641a9eada9752b1f9e34'
+  version '3.1.5,5468'
+  sha256 '1568a63516384fd62d9f746f8afe8f94bcec84ca0d25bf0b8f252eee2432509e'
 
   # bee-app.s3.amazonaws.com was verified as official when first introduced to the cask
-  url "https://bee-app.s3.amazonaws.com/public/Bee-#{version}.zip"
-  appcast 'https://s3.amazonaws.com/www.neat.io/appcasts/bee-appcast.xml',
-          checkpoint: 'cdf13e782828c6f74392351b7a0533e859cd757c9de1347257119faa2fb21023'
+  url "https://bee-app.s3.amazonaws.com/public/Bee-#{version.after_comma}-#{version.before_comma}.zip"
+  appcast 'https://s3.amazonaws.com/www.neat.io/bee/appcast.xml'
   name 'Bee'
-  homepage 'http://www.neat.io/bee/'
+  homepage 'https://www.neat.io/bee/'
 
   app 'Bee.app'
+
+  zap trash: [
+               '~/Library/Application Scripts/io.neat.Bee',
+               '~/Library/Application Scripts/io.neat.Bee-Mutator',
+               '~/Library/Application Scripts/io.neat.Bee-Updater',
+               '~/Library/Caches/io.neat.Bee',
+               '~/Library/Containers/io.neat.Bee',
+               '~/Library/Containers/io.neat.Bee-Mutator',
+               '~/Library/Containers/io.neat.Bee-Updater',
+             ]
 end

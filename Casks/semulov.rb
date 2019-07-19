@@ -1,10 +1,9 @@
 cask 'semulov' do
-  version '2.2'
-  sha256 '8453c28ba46fa2122ba52dbb1d16fe3dc2dc7268c7629f7feb249f221c001c0a'
+  version '2.4.1'
+  sha256 '1b44931b3f2fe06ecab4e47759f67da5487703f06cb51d294c04b013189929d8'
 
   url 'https://www.kainjow.com/downloads/Semulov.zip'
-  appcast 'https://kainjow.com/updates/semulov.xml',
-          checkpoint: '7bddcc2c76ef94366112266d6163429a022385c8609a7e196e5230a928cc32f5'
+  appcast 'https://kainjow.com/updates/semulov.xml'
   name 'Semulov'
   homepage 'https://www.kainjow.com/'
 

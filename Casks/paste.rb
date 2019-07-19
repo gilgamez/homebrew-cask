@@ -1,13 +1,25 @@
 cask 'paste' do
-  version '2.0.0'
-  sha256 '9e6983c2d6d6e1146a6f2ea5c3cdd7afe309fa7026882be159ef64cd052566df'
+  version '2.4.3,27'
+  sha256 'afd5b5188763e15001d1acdce9c3df66a9887dbb9abfc6768ac56bd103220361'
 
-  # hockeyapp.net/api/2/apps/ee24d1a939cd4ff8b2861eb8c788a995 was verified as official when first introduced to the cask
-  url 'https://rink.hockeyapp.net/api/2/apps/ee24d1a939cd4ff8b2861eb8c788a995?format=zip'
-  appcast 'https://rink.hockeyapp.net/api/2/apps/ee24d1a939cd4ff8b2861eb8c788a995',
-          checkpoint: '0618aaad6d8f42b92351aedc35feb8873f7b7cd6e38427d13b7cfe56518d8d59'
+  # rink.hockeyapp.net/api/2/apps/f44b38c5d9824344acdb920513bbbf8f was verified as official when first introduced to the cask
+  url "https://rink.hockeyapp.net/api/2/apps/f44b38c5d9824344acdb920513bbbf8f/app_versions/#{version.after_comma}?format=zip"
+  appcast 'https://rink.hockeyapp.net/api/2/apps/f44b38c5d9824344acdb920513bbbf8f'
   name 'Paste'
-  homepage 'http://pasteapp.me/'
+  homepage 'https://pasteapp.me/'
+
+  depends_on macos: '>= :sierra'
 
   app 'Paste.app'
+
+  uninstall launchctl: 'com.wiheads.paste.loginitem',
+            quit:      'com.wiheads.paste'
+
+  zap trash: [
+               '~/Library/Application Support/com.wiheads.paste',
+               '~/Library/Application Support/Paste',
+               '~/Library/Caches/com.wikiheads.paste',
+               '~/Library/Logs/Paste',
+               '~/Library/Preferences/com.wikiheads.paste.plist',
+             ]
 end

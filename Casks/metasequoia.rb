@@ -1,11 +1,10 @@
 cask 'metasequoia' do
-  version '4.5.7'
-  sha256 '0cd88d99379bdf8dfa42fd13ee970d8921f6d5eb3d892f76e4a7c76d68dc9e6d'
+  version '4.7.0'
+  sha256 '4b7bf9cd9b65417ccb6ea543a554897f132b0a56cc00d770e8c459d74abc7aac'
 
   # metaseq2.sakura.ne.jp was verified as official when first introduced to the cask
   url "http://metaseq2.sakura.ne.jp/metaseq/Metasequoia-#{version}-Installer.dmg"
-  appcast 'http://www.metaseq.net/en/download.html',
-          checkpoint: '3d7bb36e48f58376162495577b3a17d211830790db6cfff259d050f0f4a16c8b'
+  appcast 'http://www.metaseq.net/en/download.html'
   name 'Metasequoia'
   homepage 'http://www.metaseq.net/'
 

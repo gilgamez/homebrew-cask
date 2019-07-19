@@ -1,12 +1,19 @@
 cask 'netspot' do
-  version '2.6.797'
-  sha256 '8fd2ae945a379fe198814f5c9cbb5358e29bd78ebff04f3de3ee3077a6cc62cb'
+  version '2.10.952'
+  sha256 '55cd50eb98d1b2ebc8f431ac14b36c1dc1c3bd55fec17fd83532080a9c1bae92'
 
   url 'https://www.netspotapp.com/download/NetSpot.dmg'
-  appcast "https://www.netspotapp.com/updates/netspot#{version.major}-appcast.xml",
-          checkpoint: 'e0b96f66345251e94c6f15a807d51e00e0490be2c7ffa46ea5d75fbb3b61d543'
+  appcast "https://www.netspotapp.com/updates/netspot#{version.major}-appcast.xml"
   name 'NetSpot'
   homepage 'https://www.netspotapp.com/'
 
+  auto_updates true
+
   app 'NetSpot.app'
+
+  zap trash: [
+               '~/Library/Application Support/NetSpot',
+               '~/Library/Caches/com.etwok.netspotwifi',
+               '~/Library/Preferences/com.etwok.netspotwifi.plist',
+             ]
 end

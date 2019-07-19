@@ -1,13 +1,23 @@
 cask 'macpass' do
-  version '0.6.2-alpha'
-  sha256 '66e6cd674985555e1c8ea8a9a9a4dd10a3919b83b07f68c4dab6fa46242e4044'
+  version '0.7.9'
+  sha256 'cb4445fad7f2e64726cbaa320b228dadb3b48afe15f138ae90600e912093f12c'
 
-  # github.com/mstarke/MacPass was verified as official when first introduced to the cask
-  url "https://github.com/mstarke/MacPass/releases/download/#{version}/MacPass-#{version}.zip"
-  appcast 'https://github.com/mstarke/MacPass/releases.atom',
-          checkpoint: 'e0cb1a3c927f46c82094b92ff519cf38dfb89d00e79f665428517773ba130bff'
+  # github.com/MacPass/MacPass was verified as official when first introduced to the cask
+  url "https://github.com/MacPass/MacPass/releases/download/#{version}/MacPass-#{version}.zip"
+  appcast 'https://github.com/MacPass/MacPass/releases.atom'
   name 'MacPass'
-  homepage 'https://mstarke.github.io/MacPass/'
+  homepage 'https://macpass.github.io/'
+
+  auto_updates true
+  depends_on macos: '>= :yosemite'
 
   app 'MacPass.app'
+
+  zap delete: [
+                '~/Library/Application Support/MacPass',
+                '~/Library/Caches/com.hicknhacksoftware.MacPass',
+                '~/Library/Cookies/com.hicknhacksoftware.MacPass.binarycookies',
+                '~/Library/Preferences/com.hicknhacksoftware.MacPass.plist',
+                '~/Library/Saved Application State/com.hicknhacksoftware.MacPass.savedState',
+              ]
 end

@@ -1,10 +1,9 @@
 cask 'ghostlab' do
-  version '2.1.3'
-  sha256 '4b2fd3afcee9c77688319c1f75ab1df05a1272c35312c25d0df1f162ff976d6b'
+  version '3.3.0'
+  sha256 '61e8085ac52520a9a7502eac760564cb239692fbd3c46fba787834fd501137bc'
 
   url "https://awesome.vanamco.com/Ghostlab#{version.major}/downloads/Ghostlab#{version.major}.dmg"
-  appcast "https://awesome.vanamco.com/Ghostlab2/update/ghostlab#{version.major}-cast.xml?vco=trkd",
-          checkpoint: 'dc2804d9dea4e004b1a62fc20252b78c9962f14377a2ff1744fbc43477106034'
+  appcast 'https://awesome.vanamco.com/Ghostlab3/update/ghostlab3-cast.xml?vco=trkd'
   name 'Ghostlab'
   homepage 'https://www.vanamco.com/ghostlab/'
 

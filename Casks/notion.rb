@@ -1,16 +1,21 @@
 cask 'notion' do
-  version '0.1.6'
-  sha256 '5ae990ccf4da265c059766e24a2bf6e0f2991a5115573be0f8f346e052782178'
+  version '1.0.7'
+  sha256 '61df08fac6503ed868f1649b2628ecd84c32821d24a53c159740b476321e5e8c'
 
-  url "https://www.notion.so/desktop/Notion-#{version}.dmg"
+  # desktop-release.notion-static.com was verified as official when first introduced to the cask
+  url "https://desktop-release.notion-static.com/Notion-#{version}.dmg"
   name 'Notion'
   homepage 'https://www.notion.so/'
 
   app 'Notion.app'
 
-  zap delete: [
-                '~/Library/Application Support/Notion',
-                '~/Library/Preferences/notion.id.helper.plist',
-                '~/Library/Preferences/notion.id.plist',
-              ]
+  zap trash: [
+               '~/Library/Application Support/Notion',
+               '~/Library/Caches/notion.id',
+               '~/Library/Logs/Notion',
+               '~/Library/Preferences/notion.id.helper.plist',
+               '~/Library/Preferences/notion.id.plist',
+               '~/Library/Saved Application State/notion.id.savedState',
+               '~/Library/WebKit/notion.id',
+             ]
 end

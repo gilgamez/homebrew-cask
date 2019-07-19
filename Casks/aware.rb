@@ -4,10 +4,9 @@ cask 'aware' do
 
   # github.com/josh/Aware was verified as official when first introduced to the cask
   url "https://github.com/josh/Aware/releases/download/v#{version}/Aware.zip"
-  appcast 'https://github.com/josh/Aware/releases.atom',
-          checkpoint: '69d1a1fc0074d3e30dd3cb919be7a930907e690fdf733eb22d4c5bb4b9555986'
+  appcast 'https://github.com/josh/Aware/releases.atom'
   name 'Aware'
-  homepage 'http://awaremac.com/'
+  homepage 'https://awaremac.com/'
 
   app 'Aware.app'
 end

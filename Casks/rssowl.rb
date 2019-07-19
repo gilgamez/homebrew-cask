@@ -4,8 +4,7 @@ cask 'rssowl' do
 
   # github.com/rssowl/RSSOwl was verified as official when first introduced to the cask
   url "https://github.com/rssowl/RSSOwl/releases/download/#{version}/RSSOwl.#{version}.dmg"
-  appcast 'https://github.com/rssowl/RSSOwl/releases.atom',
-          checkpoint: 'aca4721ee09aa7ade00abf0a203ec7c37c22c114a85f6d830524f46269aad71f'
+  appcast 'https://github.com/rssowl/RSSOwl/releases.atom'
   name 'RSSOwl'
   homepage 'http://www.rssowl.org/'
 

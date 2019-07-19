@@ -1,12 +1,19 @@
 cask 'namechanger' do
-  version '3.3.0'
-  sha256 '77a328f2947cd01c37a9181556c9e9d044b131075e72b514af0d01f7da35188d'
+  version '3.4.2'
+  sha256 '9da44a88bcb4ba10fc918671bd11237df8fea2469d3fb34bdf311435c0cf7ed3'
 
   url "https://www.mrrsoftware.com/Downloads/NameChanger/Updates/NameChanger-#{version.dots_to_underscores}.zip"
-  appcast 'https://mrrsoftware.com/Downloads/NameChanger/Updates/NameChangerSoftwareUpdates.xml',
-          checkpoint: '00cc536c81895136ea548eed2cf5cc5236089e1026f0dd99244db6ef7a4d9737'
+  appcast 'https://mrrsoftware.com/Downloads/NameChanger/Updates/NameChangerSoftwareUpdates.xml'
   name 'NameChanger'
   homepage 'https://mrrsoftware.com/namechanger/'
 
+  auto_updates true
+
   app 'NameChanger.app'
+
+  zap trash: [
+               '~/Library/Application Support/NameChanger',
+               '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.mrrsoftware.namechanger.sfl*',
+               '~/Library/Preferences/com.mrrsoftware.NameChanger.plist',
+             ]
 end

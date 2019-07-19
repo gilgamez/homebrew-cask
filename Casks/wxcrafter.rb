@@ -6,12 +6,10 @@ cask 'wxcrafter' do
   name 'wxCrafter'
   homepage 'https://wxcrafter.codelite.org/'
 
-  depends_on macos: '>= :mountain_lion'
-
   app 'wxCrafter.app'
 
-  zap delete: [
-                '~/Library/Application Support/wxcrafter',
-                '~/Library/Preferences/wxcrafter.plist',
-              ]
+  zap trash: [
+               '~/Library/Application Support/wxcrafter',
+               '~/Library/Preferences/wxcrafter.plist',
+             ]
 end

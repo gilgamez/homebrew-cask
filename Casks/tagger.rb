@@ -4,8 +4,7 @@ cask 'tagger' do
 
   # github.com/Bilalh/Tagger was verified as official when first introduced to the cask
   url "https://github.com/Bilalh/Tagger/releases/download/1.8.0/Tagger_#{version}.zip"
-  appcast 'https://github.com/Bilalh/Tagger/releases.atom',
-          checkpoint: 'bec52aec35f7c2d84da353a17220a2c9830a1c4e54c00e995b38812004c522f1'
+  appcast 'https://github.com/Bilalh/Tagger/releases.atom'
   name 'Tagger'
   homepage 'https://bilalh.github.io/projects/tagger/'
 

@@ -1,13 +1,18 @@
 cask 'dogecoin' do
-  version '1.10.0'
-  sha256 'be854af97efecf30ee18ed846a3bf3a780a0eb0e459a49377d7a8261c212b322'
+  version '1.14.0'
+  sha256 '7804e9aad19b23df74820c9cc718208332c35f2467449802b99c71e1dc3c0e43'
 
   # github.com/dogecoin/dogecoin was verified as official when first introduced to the cask
-  url "https://github.com/dogecoin/dogecoin/releases/download/v#{version}/dogecoin-#{version}-osx-signed.dmg"
-  appcast 'https://github.com/dogecoin/dogecoin/releases.atom',
-          checkpoint: 'a95e91189854b31e03a68bb01da0b3db37575cb92f47f8dc69e0c1d87cfc8396'
+  url "https://github.com/dogecoin/dogecoin/releases/download/v#{version}/dogecoin-#{version}-osx.dmg"
+  appcast 'https://github.com/dogecoin/dogecoin/releases.atom'
   name 'Dogecoin'
-  homepage 'http://dogecoin.com/'
+  homepage 'https://dogecoin.com/'
 
   app 'Dogecoin-Qt.app'
+
+  preflight do
+    set_permissions "#{staged_path}/Dogecoin-Qt.app", '0755'
+  end
+
+  zap trash: '~/Library/com.dogecoin.Dogecoin-Qt.plist'
 end

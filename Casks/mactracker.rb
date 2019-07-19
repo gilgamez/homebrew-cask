@@ -1,12 +1,13 @@
 cask 'mactracker' do
-  version '7.6.4'
-  sha256 '68d563f02a0f44ebbd23f57521a4defdb85f451938cf632478c0dd2a3a4bd3a4'
+  version '7.8'
+  sha256 '9ed88db9ee54b6803e276eb5e8d0bb1d6ca75a5684e116809919ae3abc815a06'
 
   url "https://www.mactracker.ca/downloads/Mactracker_#{version}.zip"
-  appcast 'https://update.mactracker.ca/appcast-b.xml',
-          checkpoint: 'f43563a4c621a4623ba43ddb92ab41a3eaffe5942a52fe076e0fed308e1e84ad'
+  appcast 'https://update.mactracker.ca/appcast-b.xml'
   name 'Mactracker'
   homepage 'https://mactracker.ca/'
+
+  auto_updates true
 
   app 'Mactracker.app'
 end

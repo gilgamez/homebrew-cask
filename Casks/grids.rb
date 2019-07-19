@@ -1,21 +1,21 @@
 cask 'grids' do
-  version '4.4'
-  sha256 'c0380e8178a865393ed5f758acb8c8ac51e08b0a03319107975d4e406d6c8757'
+  version '5.4'
+  sha256 'c4359aa61073c9e0f412b522ce030d631741365e8b96e195760067fdc43489bd'
 
-  url "http://thegridsapp.com/bin/Grids_#{version}.dmg"
-  appcast 'http://thegridsapp.com/appcast.json',
-          checkpoint: '5d3f42dd790899139a69b3c3901d5b0ac5503696c493cb04308da58c134963e5'
+  url "https://gridsapp.net/bin/Grids_#{version}.zip"
+  appcast 'https://gridsapp.net/appcast.json'
   name 'Grids'
-  homepage 'http://thegridsapp.com/'
+  homepage 'https://gridsapp.net/'
 
   auto_updates true
+  depends_on macos: '>= :sierra'
 
   app 'Grids.app'
 
   uninstall quit: 'com.thinktimecreations.Grids'
 
-  zap delete: [
-                '~/Library/Application Support/ThinkTimeCreations/Grids',
-                '~/Library/Preferences/com.thinktimecreations.Grids.plist',
-              ]
+  zap trash: [
+               '~/Library/Application Support/ThinkTimeCreations/Grids',
+               '~/Library/Preferences/com.thinktimecreations.Grids.plist',
+             ]
 end

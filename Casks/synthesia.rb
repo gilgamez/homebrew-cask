@@ -1,6 +1,6 @@
 cask 'synthesia' do
-  version '10.3'
-  sha256 'd1152c5575969a81df535fa9b63824f63b2520865cbb4760dfc578cba5af9bd7'
+  version '10.5.1'
+  sha256 'f129e8b90921399140d7e2df2dd4312937f58c8b2d17e6693b968d82ea7e15ed'
 
   # synthesia.s3.amazonaws.com was verified as official when first introduced to the cask
   url "https://synthesia.s3.amazonaws.com/files/Synthesia-#{version}.dmg"
@@ -8,4 +8,10 @@ cask 'synthesia' do
   homepage 'https://www.synthesiagame.com/'
 
   app 'Synthesia.app'
+
+  zap trash: [
+               '~/Library/Application Support/Synthesia',
+               '~/Library/Autosave Information/com.synthesiallc.synthesia.plist',
+               '~/Library/Saved Application State/com.synthesiallc.synthesia.savedState',
+             ]
 end

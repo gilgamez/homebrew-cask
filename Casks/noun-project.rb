@@ -1,15 +1,12 @@
 cask 'noun-project' do
-  version '1.1.3'
-  sha256 '48cccb6c6e96f98eb3e31f10ec5a9478c1448637aa5c6e689d98f7d5b4c86931'
+  version '2.2.4'
+  sha256 '03ce8569cf7148e9f882d40e2e10ff8f4f48f570e7fe3c8dc0706d41e4fb5dbb'
 
-  # amazonaws.com/nounproject was verified as official when first introduced to the cask
-  url "https://s3.amazonaws.com/nounproject/mac/Noun-Project-#{version}.dmg"
-  appcast 'https://thenounproject.com/for-mac/feed/',
-          checkpoint: '5f20b3ebde64e2015c4be14b8b0f93cea927df78cf443ba7c985c314273dbfc2'
+  # nounproject.s3.amazonaws.com was verified as official when first introduced to the cask
+  url "https://nounproject.s3.amazonaws.com/mac/Noun-Project-#{version}.dmg"
+  appcast 'https://thenounproject.com/for-mac/feed/'
   name 'Noun Project'
   homepage 'https://thenounproject.com/'
-
-  depends_on macos: '>= :mavericks'
 
   app 'Noun Project.app'
 end

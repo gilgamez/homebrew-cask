@@ -1,18 +1,18 @@
 cask 'djview' do
-  version '4.10.6'
-  sha256 '46b6042e9414e800d651d7dd484126737d379a7a4a79137a81a142cb35d5e5d0'
+  version '4.10.6,57c'
+  sha256 '6ad1fe387434da4d103cbe343a7d6bb0da0fa139787069b3ba76f124651402a2'
 
-  url "https://downloads.sourceforge.net/djvu/DjVuLibre-3.5.27%2BDjView-#{version}-qt57b-intel64.dmg"
-  appcast 'https://sourceforge.net/projects/djvu/rss',
-          checkpoint: '5ad7e42269fd45af3efb843e42b2cebef42f145e26c1a99c09f8a6af41b3861f'
+  # downloads.sourceforge.net/djvu was verified as official when first introduced to the cask
+  url "https://downloads.sourceforge.net/djvu/DjVuLibre-3.5.27%2BDjView-#{version.before_comma}-qt#{version.after_comma}-intel64.dmg"
+  appcast 'https://sourceforge.net/projects/djvu/rss'
   name 'DjView'
-  homepage 'http://djvu.sourceforge.net/'
+  homepage 'https://djvu.sourceforge.io/'
 
   app 'DjView.app'
 
-  zap delete: [
-                '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/org.djvu.djview.sfl',
-                '~/Library/Preferences/org.djvu.DjView.plist',
-                '~/Library/Saved Application State/org.djvu.DjView.savedState',
-              ]
+  zap trash: [
+               '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/org.djvu.djview.sfl*',
+               '~/Library/Preferences/org.djvu.DjView.plist',
+               '~/Library/Saved Application State/org.djvu.DjView.savedState',
+             ]
 end

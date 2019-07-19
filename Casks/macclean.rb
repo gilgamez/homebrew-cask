@@ -2,7 +2,7 @@ cask 'macclean' do
   version :latest
   sha256 :no_check
 
-  url 'https://www.imobie.com/product/macclean-mac.dmg'
+  url 'https://dl.imobie.com/macclean-mac.dmg'
   name 'MacClean'
   homepage 'https://www.imobie.com/macclean/'
 

@@ -4,10 +4,9 @@ cask 'rodeo' do
 
   # github.com/yhat/rodeo was verified as official when first introduced to the cask
   url "https://github.com/yhat/rodeo/releases/download/v#{version}/Rodeo-#{version}.dmg"
-  appcast 'https://github.com/yhat/rodeo/releases.atom',
-          checkpoint: '11314607f359d744a2a1f03a11aef9528e71290df56645f146d9a9a94974c893'
+  appcast 'https://github.com/yhat/rodeo/releases.atom'
   name 'Rodeo'
-  homepage 'http://rodeo.yhat.com/'
+  homepage 'https://rodeo.yhat.com/'
 
   app 'Rodeo.app'
 end

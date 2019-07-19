@@ -1,22 +1,21 @@
 cask 'ransomwhere' do
-  version '1.1.0'
-  sha256 '7b18e17abd8fb40d7c25f29f65d64a1f65c758d61c9f67c11d9722d1d7486ea9'
+  version '1.2.5'
+  sha256 '091a61bb99f5fe73944cda2b6ad26efb6d7ffaf8ddd391d237b82afb10b46a67'
 
   # bitbucket.org/objective-see was verified as official when first introduced to the cask
   url "https://bitbucket.org/objective-see/deploy/downloads/RansomWhere_#{version}.zip"
-  appcast 'https://objective-see.com/products.json',
-          checkpoint: 'b2004932186e0eb176a9ac01fe499de292d502d7a17559e900822f9cdbfa74d6'
+  appcast 'https://objective-see.com/products/changelogs/RansomWhere.txt'
   name 'RansomWhere'
   homepage 'https://objective-see.com/products/ransomwhere.html'
 
   installer script: {
-                      executable: "#{staged_path}/RansomWhere.app/Contents/MacOS/RansomWhere",
+                      executable: "#{staged_path}/RansomWhere_Installer.app/Contents/MacOS/RansomWhere_Installer",
                       args:       ['-install'],
                       sudo:       true,
                     }
 
   uninstall script: {
-                      executable: "#{staged_path}/RansomWhere.app/Contents/MacOS/RansomWhere",
+                      executable: "#{staged_path}/RansomWhere_Installer.app/Contents/MacOS/RansomWhere_Installer",
                       args:       ['-uninstall'],
                       sudo:       true,
                     }

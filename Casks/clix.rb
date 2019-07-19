@@ -1,10 +1,18 @@
 cask 'clix' do
-  version '2.1'
-  sha256 'a4f9d270792e9da698326924e4c899c7a5f13f157c7793b82187688f8c189008'
+  version '2.4.0.0'
+  sha256 '286361c88e11cb8c308ce97236ac04b6b328b6f3eead51057d22c3fa82db4006'
 
-  url 'ftp://rixstep.com/CLIX.tar.bz2'
+  url 'ftp://rixstep.com/CLIX.zip'
   name 'CLIX'
-  homepage 'http://rixstep.com/4/0/clix/'
+  homepage 'https://rixstep.com/4/0/clix/'
 
-  app "CLIX#{version}/CLIX.app"
+  app "CLIX/#{version.no_dots}/CLIX.app"
+
+  preflight do
+    set_permissions "#{staged_path}/CLIX/#{version.no_dots}/CLIX.app", '0755'
+  end
+
+  postflight do
+    set_permissions "#{appdir}/CLIX/#{version.no_dots}/CLIX.app", '0700'
+  end
 end

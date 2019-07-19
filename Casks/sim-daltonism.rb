@@ -1,8 +1,9 @@
 cask 'sim-daltonism' do
-  version '2.0'
-  sha256 '7df49f654ad7dd5267dd3274261381950f1f8abfd1b98f3c2b26910d1d3d2500'
+  version '2.0.4'
+  sha256 'c5c930be3f4ba613f780f4877f8555e92d2bc0a30bd0b12913a04226b0eef0d0'
 
   url "https://littoral.michelf.ca/apps/sim-daltonism/sim-daltonism-#{version}.zip"
+  appcast 'https://littoral.michelf.ca/apps/sim-daltonism/'
   name 'Sim Daltonism'
   homepage 'https://michelf.ca/projects/mac/sim-daltonism/'
 

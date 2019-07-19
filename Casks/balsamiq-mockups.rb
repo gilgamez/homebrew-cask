@@ -1,21 +1,18 @@
 cask 'balsamiq-mockups' do
-  version '3.5.8'
-  sha256 '5b83d3f595fc11bc9835e4b89c22fff33becf47e95929483747a96eb5a0c7c59'
+  version '3.5.17'
+  sha256 'a89f2a7959bc7f987710b7f3d6ae665e5765180dd02763d1b5f953415c130df2'
 
   url "https://builds.balsamiq.com/mockups-desktop/Balsamiq_Mockups_#{version}.dmg"
-  appcast 'https://builds.balsamiq.com/mockups-desktop/version.jsonp',
-          checkpoint: 'de1d8a33b5c2bdd9d24953fbfbdee4f2429eb68694238f380ed8e0ce85ee77c3'
+  appcast 'https://builds.balsamiq.com/mockups-desktop/version.jsonp'
   name 'Balsamiq Mockups'
   homepage 'https://balsamiq.com/'
 
   app "Balsamiq Mockups #{version.major}.app"
 
-  zap delete: [
-                "~/Library/Caches/BalsamiqMockups#{version.major}.*",
-                "~/Library/Saved Application State/BalsamiqMockups#{version.major}.*",
-              ],
-      trash:  [
-                "~/Library/Preferences/BalsamiqMockups#{version.major}",
-                "~/Library/Preferences/BalsamiqMockups#{version.major}.*",
-              ]
+  zap trash: [
+               "~/Library/Caches/BalsamiqMockups#{version.major}.*",
+               "~/Library/Preferences/BalsamiqMockups#{version.major}",
+               "~/Library/Preferences/BalsamiqMockups#{version.major}.*",
+               "~/Library/Saved Application State/BalsamiqMockups#{version.major}.*",
+             ]
 end

@@ -1,14 +1,13 @@
 cask 'soundsource' do
-  version '3.0.2'
-  sha256 '04cf3d83102da384fad41ae0673250cb36ee4c15cdf6690b98dbf2cd88c2e84c'
+  version '4.1.1'
+  sha256 '36f7b5547d378edbbd5de575dc1fdef32d7f2dfd9fbebe2ef8f6419f3545450a'
 
   url 'https://rogueamoeba.com/soundsource/download/SoundSource.zip'
-  appcast 'https://rogueamoeba.com/soundsource/releasenotes.php',
-          checkpoint: '998b7b81e3a83bd741263661a535f6de541ed58a6020c76b69d250f084d2fc20'
+  appcast 'https://rogueamoeba.net/ping/versionCheck.cgi?format=sparkle&bundleid=com.rogueamoeba.soundsource&version=4008000'
   name 'SoundSource'
   homepage 'https://rogueamoeba.com/soundsource/'
 
-  depends_on macos: '>= :yosemite'
+  depends_on macos: '>= :el_capitan'
 
   app 'SoundSource.app'
 end

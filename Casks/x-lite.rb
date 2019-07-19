@@ -1,11 +1,12 @@
 cask 'x-lite' do
-  version '4.9.7.1_83369'
-  sha256 '5440cfb882df118cfe8f3f934a03221cf963bb1b429e655002e36eda6c52f3c8'
+  version '5.6.1_99140'
+  sha256 'de59e5367222520dcd6482c7f75f2305d49c38a79f933e522e3b74197317ca7a'
 
   # counterpath.s3.amazonaws.com was verified as official when first introduced to the cask
   url "https://counterpath.s3.amazonaws.com/downloads/X-Lite_#{version}.dmg"
+  appcast 'https://www.macupdater.net/cgi-bin/check_urls/check_url_redirect.cgi?url=https://www.counterpath.com/XLiteForMac'
   name 'X-Lite'
-  homepage 'http://www.counterpath.com/x-lite/'
+  homepage 'https://www.counterpath.com/x-lite/'
 
   app 'X-Lite.app'
 end

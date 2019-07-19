@@ -1,10 +1,9 @@
 cask 'fog' do
-  version '1.2.0'
-  sha256 '17084b6e5cb885f56d273040b29a690715339c0e425b433be8447f74e336900e'
+  version '1.4.5'
+  sha256 'dbf1216fce69ead08e9e9a37b18391d3d65e7f06ae4e6f633e7047832c6b1adc'
 
-  url "https://github.com/vitorgalvao/fog/releases/download/v#{version}/Fog-macos-#{version}.zip"
-  appcast 'https://github.com/vitorgalvao/fog/releases.atom',
-          checkpoint: 'cbe090418947bcb74fb49c8ea1d621123123ea523a682bb08248b970f748bc95'
+  url "https://github.com/vitorgalvao/fog/releases/download/#{version}/Fog-#{version}-mac.zip"
+  appcast 'https://github.com/vitorgalvao/fog/releases.atom'
   name 'Fog'
   homepage 'https://github.com/vitorgalvao/fog'
 
@@ -12,12 +11,12 @@ cask 'fog' do
 
   uninstall quit: 'com.vitorgalvao.fog'
 
-  zap delete: [
-                '~/Library/Application Support/Fog',
-                '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.vitorgalvao.fog.sfl',
-                '~/Library/Caches/Fog',
-                '~/Library/Preferences/com.vitorgalvao.fog.helper.plist',
-                '~/Library/Preferences/com.vitorgalvao.fog.plist',
-                '~/Library/Saved Application State/com.vitorgalvao.fog.savedState',
-              ]
+  zap trash: [
+               '~/Library/Application Support/Fog',
+               '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.vitorgalvao.fog.sfl*',
+               '~/Library/Caches/Fog',
+               '~/Library/Preferences/com.vitorgalvao.fog.helper.plist',
+               '~/Library/Preferences/com.vitorgalvao.fog.plist',
+               '~/Library/Saved Application State/com.vitorgalvao.fog.savedState',
+             ]
 end

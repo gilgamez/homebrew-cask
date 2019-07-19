@@ -1,10 +1,9 @@
 cask 'asset-catalog-tinkerer' do
-  version '2.5'
-  sha256 '2efdd8039fcd68474bbbb20962c5e73328da75b2a9bd4f4145d8e3b2603775af'
+  version '2.5.1'
+  sha256 '75788e83f27ba5d2fc76916339b2f39eb1d5b233cce5e5bd39dbc0461e4d513a'
 
   url "https://github.com/insidegui/AssetCatalogTinkerer/releases/download/#{version}/AssetCatalogTinkerer_v#{version}.zip"
-  appcast 'https://github.com/insidegui/AssetCatalogTinkerer/releases.atom',
-          checkpoint: 'e4eddf825266995ad02b1bb1eaef219aa00d44153ad01a4011b0fca71b2860b1'
+  appcast 'https://github.com/insidegui/AssetCatalogTinkerer/releases.atom'
   name 'Asset Catalog Tinkerer'
   homepage 'https://github.com/insidegui/AssetCatalogTinkerer'
 

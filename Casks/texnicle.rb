@@ -1,12 +1,20 @@
 cask 'texnicle' do
-  version '2.2.15'
-  sha256 '754b5ed5e93a11a8bd39adbabd0285d4d61844dd21992a5986ee1fd2bdfcd904'
+  version '2.3.1'
+  sha256 '0cdc81a0b7578f6656f2437cb24ffa390f556aa7b25a6fd9e4b90ed9a4dc5986'
 
   url "http://www.bobsoft-mac.de/resources/TeXnicle/#{version.major_minor}/TeXnicle.app.#{version}.zip"
-  appcast 'http://www.bobsoft-mac.de/profileInfo.php',
-          checkpoint: '1d8e0e6d597e2aa6fd52ad15c3f5ff7c7420a447340e60dab126044f39b9864e'
+  appcast 'http://www.bobsoft-mac.de/texnicle_appcast.xml'
   name 'TeXnicle'
   homepage 'http://www.bobsoft-mac.de/texnicle/texnicle.html'
 
+  auto_updates true
+
   app 'TeXnicle.app'
+
+  zap trash: [
+               '~/Library/Application Support/TeXnicle',
+               '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.bobsoft.texnicle.sfl*',
+               '~/Library/Caches/com.bobsoft.TeXnicle',
+               '~/Library/Preferences/com.bobsoft.TeXnicle.plist',
+             ]
 end

@@ -1,11 +1,11 @@
 cask 'printrun' do
-  version '03Feb2015'
-  sha256 '707a3c985f32ec156b4dc85dae3d3434a3a052bbf239d768423d94c1b7f86998'
+  version '1.6.0,18Nov2017'
+  sha256 '426229043a2a33a6768dcca12135f0751c007595af078665eb854cf87e4e2999'
 
-  # koti.kapsi.fi/~kliment/printrun was verified as official when first introduced to the cask
-  url "http://koti.kapsi.fi/~kliment/printrun/Printrun-Mac-#{version}.zip"
+  url "https://github.com/kliment/Printrun/releases/download/printrun-#{version.before_comma}/Printrun-Mac-#{version.after_comma}.zip"
+  appcast 'https://github.com/kliment/Printrun/releases.atom'
   name 'Printrun'
   homepage 'https://github.com/kliment/Printrun'
 
-  app "Printrun-Mac-#{version}.app"
+  app "Printrun-Mac-#{version.after_comma}.app"
 end

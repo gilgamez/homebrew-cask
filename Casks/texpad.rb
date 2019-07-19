@@ -1,31 +1,30 @@
 cask 'texpad' do
-  if MacOS.version <= :mountain_lion
-    version '1.6.14'
-    sha256 '18fcbe93e77e5b5bc848172546962fcde397a26fd543efcc1054004369192f7e'
-
-    url "https://download.texpadapp.com/apps/osx/updates/Texpad_#{version.dots_to_underscores}.zip"
+  if MacOS.version <= :yosemite
+    version '1.7.45,237,1487350'
+    sha256 '5973da0e221a9f9168228d628e25b1f788bcdc9ca8cae86cb02089804f3240f5'
+  elsif MacOS.version == :el_capitan
+    version '1.8.5,404,f8f30e5'
+    sha256 '676a1b071142c022cdfda57668c811f7747b36ded442548073fe6dda1b9ca934'
   else
-    version '1.7.41,172,423dc8c'
-    sha256 'b5894d99a131c3ed0630c5397f516b22d34f2ed89d45e88c858d38afda99ed16'
-
-    url "https://download.texpadapp.com/apps/osx/updates/Texpad_#{version.before_comma.dots_to_underscores}__#{version.after_comma.before_comma}__#{version.after_comma.after_comma}.dmg"
-    appcast 'https://www.texpadapp.com/static-collected/upgrades/texpadappcast.xml',
-            checkpoint: 'bb20f1d972495ce913b85fbe7d1f91b7b8b481c447a98c1b58111e5643f81afd'
+    version '1.8.10,463,4717d3d'
+    sha256 '9eedacdd03518108aa0abdde7718fa4e2d38f2c5d878f3053e4464d1d9f79685'
   end
 
+  # download.texpadapp.com was verified as official when first introduced to the cask
+  url "https://download.texpadapp.com/apps/osx/updates/Texpad_#{version.before_comma.dots_to_underscores}__#{version.after_comma.before_comma}__#{version.after_comma.after_comma}.dmg"
+  appcast 'https://www.texpad.com/static-collected/upgrades/texpadappcast.xml'
   name 'Texpad'
   homepage 'https://www.texpad.com/osx'
 
   auto_updates true
-  depends_on macos: '>= :lion'
 
   app 'Texpad.app'
 
-  zap delete: [
-                '~/Library/Application Support/Texpad',
-                '~/Library/Caches/com.vallettaventures.Texpad',
-                '~/Library/Cookies/com.vallettaventures.Texpad.binarycookies',
-                '~/Library/Preferences/com.vallettaventures.Texpad.plist',
-                '~/Library/Saved Application State/com.vallettaventures.Texpad.savedState',
-              ]
+  zap trash: [
+               '~/Library/Application Support/Texpad',
+               '~/Library/Caches/com.vallettaventures.Texpad',
+               '~/Library/Cookies/com.vallettaventures.Texpad.binarycookies',
+               '~/Library/Preferences/com.vallettaventures.Texpad.plist',
+               '~/Library/Saved Application State/com.vallettaventures.Texpad.savedState',
+             ]
 end

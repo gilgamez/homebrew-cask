@@ -1,10 +1,9 @@
 cask 'fission' do
-  version '2.3.1'
-  sha256 '93d5b1bb5b64b37b32acc6548c36d6bbbdc9a4a5d0302b13b8a57da8be169360'
+  version '2.4.5'
+  sha256 'c876f4e48ddbadbce9d60c56467f98eb592a5ae059647eb9f8172ba64e761eae'
 
   url 'https://rogueamoeba.com/fission/download/Fission.zip'
-  appcast 'https://rogueamoeba.net/ping/versionCheck.cgi?format=sparkle&bundleid=com.rogueamoeba.Fission&version=2000000',
-          checkpoint: '1b0862f5ae6ab2616285919faf79054b7d915a3fae2c2dbd86430c2b7e2f6626'
+  appcast 'https://rogueamoeba.com/fission/releasenotes.php'
   name 'Fission'
   homepage 'https://rogueamoeba.com/fission/'
 

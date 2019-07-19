@@ -1,10 +1,10 @@
 cask 'nodebox' do
-  version '3.0.45'
-  sha256 '076c35226af46fc3a5c99488cef642cd857c4a7c32ce23ac7b2ea2ee5e8a687d'
+  version '3.0.51'
+  sha256 '2187ebaa849de93f54c5550529678a8a160b06cf6186e8d21a66fc43f395e629'
 
-  url "https://secure.nodebox.net/downloads/NodeBox-#{version}.zip"
-  appcast 'https://www.nodebox.net/node/release-notes.html',
-          checkpoint: '6294533c26f1851752ebdc9eef6d637d241dacac9f4b83cd06d989c6991d3230'
+  # github.com/nodebox/nodebox was verified as official when first introduced to the cask
+  url "https://github.com/nodebox/nodebox/releases/download/v#{version}/NodeBox-#{version}.zip"
+  appcast 'https://www.nodebox.net/node/release-notes.html'
   name 'NodeBox'
   homepage 'https://www.nodebox.net/node/'
 

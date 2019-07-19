@@ -1,18 +1,22 @@
 cask 'hex-fiend' do
-  version '2.5.0'
-  sha256 '54090c9c4861f2a681b6f27558a2772767f321b57df3e49e8dd432121142ab81'
+  version '2.11.0'
+  sha256 'f775a92d79fc5dd39ebe898b1ac8d7d36cde034f96c903caf5ea782e2d402288'
 
   # github.com/ridiculousfish/HexFiend was verified as official when first introduced to the cask
-  url "https://github.com/ridiculousfish/HexFiend/releases/download/v#{version}/Hex_Fiend_#{version.major_minor}.dmg"
-  appcast 'https://github.com/ridiculousfish/HexFiend/releases.atom',
-          checkpoint: 'e3f2f50763b4be2983633d6500fa3a2f22c03f4ca6f26dcdecf9d0f3cbd2effb'
+  url "https://github.com/ridiculousfish/HexFiend/releases/download/v#{version}/Hex_Fiend_#{version}.dmg"
+  appcast 'https://github.com/ridiculousfish/HexFiend/releases.atom'
   name 'Hex Fiend'
-  homepage 'http://ridiculousfish.com/hexfiend/'
+  homepage 'https://ridiculousfish.com/hexfiend/'
+
+  auto_updates true
+  conflicts_with cask: 'hex-fiend-beta'
 
   app 'Hex Fiend.app'
+  binary "#{appdir}/Hex Fiend.app/Contents/Resources/hexf"
 
-  zap delete: [
-                '~/Library/Preferences/com.ridiculousfish.HexFiend.LSSharedFileList.plist',
-                '~/Library/Preferences/com.ridiculousfish.HexFiend.plist',
-              ]
+  zap trash: [
+               '~/Library/Caches/com.ridiculousfish.HexFiend',
+               '~/Library/Preferences/com.ridiculousfish.HexFiend.plist',
+               '~/Library/Saved Application State/com.ridiculousfish.HexFiend.savedState',
+             ]
 end
